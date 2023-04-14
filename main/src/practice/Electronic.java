@@ -1,4 +1,4 @@
-package Practice01;
+package practice;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -9,11 +9,11 @@ public class Electronic {
 
     String productNo;
     String modelName;
-    CompanyName companyName;
+    Company company;
     LocalDate dateOfMade;
     AuthMethod[] authMethod;
 
-    public Electronic(String modelName, CompanyName companyName, LocalDate dateOfMade, AuthMethod[] authMethod) {
+    public Electronic(String modelName, Company company, LocalDate dateOfMade, AuthMethod[] authMethod) {
         LocalDate now = LocalDate.now();
         int nowYear = now.getYear();
         int nowMonth = now.getMonth().getValue();
@@ -21,7 +21,7 @@ public class Electronic {
 
         this.productNo = String.format("%d%02d%d%04d", nowYear % 100, nowMonth, nowDay, ++sequenceNumber);
         this.modelName = modelName;
-        this.companyName = companyName;
+        this.company = company;
         this.dateOfMade = dateOfMade;
         this.authMethod = authMethod;
     }
@@ -34,8 +34,8 @@ public class Electronic {
         return modelName;
     }
 
-    public CompanyName getCompanyName() {
-        return companyName;
+    public Company getCompany() {
+        return company;
     }
 
     public LocalDate getDateOfMade() {
@@ -50,8 +50,8 @@ public class Electronic {
         this.modelName = modelName;
     }
 
-    public void setCompanyName(CompanyName companyName) {
-        this.companyName = companyName;
+    public void setCompanyName(Company company) {
+        this.company = company;
     }
 
     public void setDateOfMade(LocalDate dateOfMade) {
@@ -67,12 +67,12 @@ public class Electronic {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Electronic that = (Electronic) o;
-        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && companyName == that.companyName && Objects.equals(dateOfMade, that.dateOfMade) && Arrays.equals(authMethod, that.authMethod);
+        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && company == that.company && Objects.equals(dateOfMade, that.dateOfMade) && Arrays.equals(authMethod, that.authMethod);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(productNo, modelName, companyName, dateOfMade);
+        int result = Objects.hash(productNo, modelName, company, dateOfMade);
         result = 31 * result + Arrays.hashCode(authMethod);
         return result;
     }
@@ -82,7 +82,7 @@ public class Electronic {
         return "Electronic{" +
                 "productNo='" + productNo + '\'' +
                 ", modelName='" + modelName + '\'' +
-                ", companyName=" + companyName +
+                ", companyName=" + company +
                 ", dateOfMade=" + dateOfMade +
                 ", authMethod=" + Arrays.toString(authMethod) +
                 '}';

@@ -1,4 +1,4 @@
-package Practice01;
+package practice;
 
 import java.util.Arrays;
 
@@ -6,6 +6,9 @@ public class Users {
     private static Users users = null;
 
     private User[] userList = new User[]{};
+
+    private Users() {
+    }
 
     public static Users getInstance() {
         if (users == null) {

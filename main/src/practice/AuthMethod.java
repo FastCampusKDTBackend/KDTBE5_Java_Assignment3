@@ -1,4 +1,4 @@
-package Practice01;
+package practice;
 
 public enum AuthMethod {
     FINGERPRINT,

@@ -1,39 +1,42 @@
-package Practice01;
+package practice;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class User {
-    private int userId;
+    private String userId;
     private String userPassword;
     private String userPhoneNumber;
     private String userEmail;
     private String userBirthDate;
-    private ElectronicDevices electronicDevices;
-
+    private Electronics electronics;
 
 
     private LocalDateTime localDateTime;
 
-    public User(int userId, String userPassword, String userPhoneNumber, String userEmail, String userBirthDate, ElectronicDevices electronicDevices) {
+    public User() {
+    }
+
+
+    public User(String userId, String userPassword, String userPhoneNumber, String userEmail, String userBirthDate, Electronics electronics) {
         this.localDateTime = LocalDateTime.now();
         this.userId = userId;
         this.userPassword = userPassword;
         this.userPhoneNumber = userPhoneNumber;
         this.userEmail = userEmail;
         this.userBirthDate = userBirthDate;
-        this.electronicDevices = electronicDevices;
+        this.electronics = electronics;
     }
 
     public LocalDateTime getLocalDateTime() {
         return localDateTime;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -69,12 +72,12 @@ public class User {
         this.userBirthDate = userBirthDate;
     }
 
-    public ElectronicDevices getElectronicDevices() {
-        return electronicDevices;
+    public Electronics getElectronicDevices() {
+        return electronics;
     }
 
-    public void setElectronicDevices(ElectronicDevices electronicDevices) {
-        this.electronicDevices = electronicDevices;
+    public void setElectronicDevices(Electronics electronics) {
+        this.electronics = electronics;
     }
 
     @Override
@@ -82,12 +85,12 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return userId == user.userId && Objects.equals(userPassword, user.userPassword) && Objects.equals(userPhoneNumber, user.userPhoneNumber) && Objects.equals(userEmail, user.userEmail) && Objects.equals(userBirthDate, user.userBirthDate) && Objects.equals(electronicDevices, user.electronicDevices);
+        return userId == user.userId && Objects.equals(userPassword, user.userPassword) && Objects.equals(userPhoneNumber, user.userPhoneNumber) && Objects.equals(userEmail, user.userEmail) && Objects.equals(userBirthDate, user.userBirthDate) && Objects.equals(electronics, user.electronics);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, userPassword, userPhoneNumber, userEmail, userBirthDate, electronicDevices);
+        return Objects.hash(userId, userPassword, userPhoneNumber, userEmail, userBirthDate, electronics);
     }
 
     @Override
@@ -98,7 +101,7 @@ public class User {
                 ", userPhoneNumber='" + userPhoneNumber + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 ", userBirthDate='" + userBirthDate + '\'' +
-                ", electronicDevices=" + electronicDevices +
+                ", electronicDevices=" + electronics +
                 '}';
     }
 }
