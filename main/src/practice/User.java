@@ -9,7 +9,7 @@ public class User {
     private String userPhoneNumber;
     private String userEmail;
     private String userBirthDate;
-    private Electronics electronics;
+    private Electronic[] electronicList;
 
 
     private LocalDateTime localDateTime;
@@ -18,14 +18,16 @@ public class User {
     }
 
 
-    public User(String userId, String userPassword, String userPhoneNumber, String userEmail, String userBirthDate, Electronics electronics) {
+    public User(
+            String userId, String userPassword, String userPhoneNumber, String userEmail, String userBirthDate, Electronic[] electronicList
+    ) {
         this.localDateTime = LocalDateTime.now();
         this.userId = userId;
         this.userPassword = userPassword;
         this.userPhoneNumber = userPhoneNumber;
         this.userEmail = userEmail;
         this.userBirthDate = userBirthDate;
-        this.electronics = electronics;
+        this.electronicList = electronicList;
     }
 
     public LocalDateTime getLocalDateTime() {
@@ -72,12 +74,12 @@ public class User {
         this.userBirthDate = userBirthDate;
     }
 
-    public Electronics getElectronicDevices() {
-        return electronics;
+    public Electronic[] getElectronicDevices() {
+        return electronicList;
     }
 
-    public void setElectronicDevices(Electronics electronics) {
-        this.electronics = electronics;
+    public void setElectronicDevices(Electronic[] electronicList) {
+        this.electronicList = electronicList;
     }
 
     @Override
@@ -85,12 +87,12 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return userId == user.userId && Objects.equals(userPassword, user.userPassword) && Objects.equals(userPhoneNumber, user.userPhoneNumber) && Objects.equals(userEmail, user.userEmail) && Objects.equals(userBirthDate, user.userBirthDate) && Objects.equals(electronics, user.electronics);
+        return userId == user.userId && Objects.equals(userPassword, user.userPassword) && Objects.equals(userPhoneNumber, user.userPhoneNumber) && Objects.equals(userEmail, user.userEmail) && Objects.equals(userBirthDate, user.userBirthDate) && Objects.equals(electronicList, user.electronicList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, userPassword, userPhoneNumber, userEmail, userBirthDate, electronics);
+        return Objects.hash(userId, userPassword, userPhoneNumber, userEmail, userBirthDate, electronicList);
     }
 
     @Override
@@ -101,7 +103,7 @@ public class User {
                 ", userPhoneNumber='" + userPhoneNumber + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 ", userBirthDate='" + userBirthDate + '\'' +
-                ", electronicDevices=" + electronics +
+                ", electronicDevices=" + electronicList +
                 '}';
     }
 }

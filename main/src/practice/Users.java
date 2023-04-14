@@ -35,7 +35,7 @@ public class Users {
         copyUser.setUserPassword(user.getUserPassword());
         copyUser.setUserBirthDate(user.getUserBirthDate());
         copyUser.setUserPhoneNumber(user.getUserPhoneNumber());
-
+        copyUser.setElectronicDevices(Arrays.copyOf(user.getElectronicDevices(), user.getElectronicDevices().length));
         return copyUser;
     }
 }
