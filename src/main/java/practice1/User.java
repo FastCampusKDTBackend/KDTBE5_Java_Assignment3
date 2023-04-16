@@ -14,6 +14,14 @@ public class User {
 
     private Electronic[] electronicDevices;
     private LocalDateTime registerTime;
+    public User(String userId, String userPassword, String userPhoneNumber, String userEmail, LocalDate userBirthDate) {
+        this.userId = userId;
+        this.userPassword = userPassword;
+        this.userPhoneNumber = userPhoneNumber;
+        this.userEmail = userEmail;
+        this.userBirthDate = userBirthDate;
+        this.registerTime= LocalDateTime.now();
+    }
 
     public String getUserId() {
         return userId;
