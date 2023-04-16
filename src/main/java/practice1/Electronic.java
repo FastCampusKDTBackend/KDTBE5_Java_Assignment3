@@ -10,13 +10,36 @@ public class Electronic {
     private CompanyName companyName;
     private LocalDate dateOfMade;
     private AuthMethod[] authMethod;
+    private static int order = 0;
 
-    public Electronic(Long productNo, String modelName, CompanyName companyName, LocalDate dateOfMade, AuthMethod[] authMethod) {
-        this.productNo = productNo;
+    public Electronic(String modelName, CompanyName companyName, LocalDate dateOfMade, AuthMethod[] authMethod) {
         this.modelName = modelName;
         this.companyName = companyName;
         this.dateOfMade = dateOfMade;
         this.authMethod = authMethod;
+        createProductNo(this.dateOfMade);
+    }
+
+    private void createProductNo(LocalDate dateOfMade) {
+        int year = dateOfMade.getYear();
+        int month = dateOfMade.getMonthValue();
+        int day = dateOfMade.getDayOfMonth();
+
+        String no = year + month + day + makeOrderString();
+        productNo = Long.parseLong(no);
+    }
+
+    private String makeOrderString() {
+        if (order < 9) {
+            return "000" + (++order);
+        }
+        if (order < 99) {
+            return "00" + (++order);
+        }
+        if (order < 999) {
+            return "0" + (++order);
+        }
+        throw new IllegalArgumentException("등록순서는 네자리 수까지 가능합니다.");
     }
 
     public Long getProductNo() {
