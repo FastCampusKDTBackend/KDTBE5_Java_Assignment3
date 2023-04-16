@@ -22,11 +22,21 @@ public class Electronic {
 
     private void createProductNo(LocalDate dateOfMade) {
         int year = dateOfMade.getYear();
-        int month = dateOfMade.getMonthValue();
-        int day = dateOfMade.getDayOfMonth();
-
+        year -= 2000;
+        String month = String.valueOf(dateOfMade.getMonthValue());
+        month=addZero(month);
+        String day = String.valueOf(dateOfMade.getDayOfMonth());
+        day=addZero(day);
+        System.out.println("year: " + year + " month: " + month + " day: " + day);
         String no = year + month + day + makeOrderString();
         productNo = Long.parseLong(no);
+    }
+
+    private String addZero(String date){
+        if(date.length()==1){
+            date = "0" + date;
+        }
+        return date;
     }
 
     private String makeOrderString() {
