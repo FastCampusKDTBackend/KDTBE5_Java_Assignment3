@@ -8,6 +8,11 @@ import java.util.Objects;
 public class Users {
     private ArrayList<User> userList = new ArrayList<>();
 
+    public Users(ArrayList<User> userList) {
+        this.userList = userList;
+    }
+
+    public Users () {}
     public ArrayList<User> getUserList() {
         return userList;
     }

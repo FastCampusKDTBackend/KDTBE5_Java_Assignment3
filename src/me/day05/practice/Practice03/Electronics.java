@@ -6,16 +6,46 @@ import me.day05.practice.Practice01.Company;
 import me.day05.practice.Practice01.Electronic;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Electronics {
     private ArrayList<Electronic> electronicList = new ArrayList<>();
 
+    public Electronics(ArrayList<Electronic> electronicList) {
+        this.electronicList = electronicList;
+    }
+
+    public Electronics() {}
     public ArrayList<Electronic> getElectronicList() {
         return electronicList;
     }
 
     public void setElectronicList(ArrayList<Electronic> electronicList) {
         this.electronicList = electronicList;
+    }
+
+    public static void setInstance(Electronics instance) {
+        Electronics.instance = instance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Electronics that = (Electronics) o;
+        return Objects.equals(electronicList, that.electronicList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(electronicList);
+    }
+
+    @Override
+    public String toString() {
+        return "Electronics{" +
+                "electronicList=" + electronicList +
+                '}';
     }
 
     // Electric 클래스의 객체를 싱글톤으로 생성하는 함수를 작성하시오.
