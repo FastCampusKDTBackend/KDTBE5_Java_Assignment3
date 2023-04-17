@@ -9,8 +9,7 @@ import java.util.Objects;
 
 public class Electronics {
 
-    Electronic[] electronicList;    
-
+    private Electronic[] electronicList;    
     private static Electronics instance;
 
     private Electronics() {

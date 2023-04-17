@@ -7,8 +7,7 @@ import java.util.Objects;
 
 public class Users {
 
-    User[] userList;        
-
+    private  User[] userList;        
     private static Users instance;
 
     private Users() {}
