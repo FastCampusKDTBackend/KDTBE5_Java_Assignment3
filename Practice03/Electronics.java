@@ -68,18 +68,18 @@ public class Electronics {
     }
 
     //3-3 전자제품들 중 인자로 주어진 제조 회사를 찾아서 하나의 배열에 반환하는 함수를 작성
-    public static Electronic[] groupByCompanyName(Company company){
+    public static List<Electronic> groupByCompanyName(Company company){
         List<Electronic> groupByCompanyNamelist =new ArrayList<>();
         for(int i=0; i<electroniclist.length;i++){
             if(electroniclist[i].getCompanyName().equals(company)){
                 groupByCompanyNamelist.add(electroniclist[i]);
             }
         }
-        return null;
+        return groupByCompanyNamelist;
     }
 
     //3-4 전자제품들 중 인자로 주어진 인증 방법을 찾아서 하나의 배열에 반환하는 함수를 작성
-    public static Electronic[] groupByAuthMethod(AuthMethod authMethod){
+    public static List<Electronic> groupByAuthMethod(AuthMethod authMethod){
 
         List<Electronic>  groupByAuthMethodlist =new ArrayList<>();
         for(int i=0; i<electroniclist.length;i++){
@@ -87,6 +87,6 @@ public class Electronics {
                 groupByAuthMethodlist.add(electroniclist[i]);
             }
         }
-        return groupByAuthMethodlist.toArray((new Electronic[groupByAuthMethodlist.size()]));
+        return groupByAuthMethodlist ;
     }
 }
