@@ -55,7 +55,7 @@ public class Users {
   
   /**
    * @param userId 유저 ID
-   * @return 유저 ID와 일치하는 객체의 복사본
+   * @return 유저 ID와 일치하는 객체
    */
   public User findByUserId(String userId) {
     return Arrays.stream(userList)
