@@ -7,15 +7,12 @@ import java.util.Optional;
 public class Users {
 
     private static final int DEFAULT_CAPACITY = 10; // Default initial capacity
-
     private static final User[] EMPTY_USER_LIST = {};
 
     private static User[] userList;
-
     private static Users usersInstance;
 
     private int size;
-
     private int capacity;
 
     Users(){
@@ -109,6 +106,5 @@ public class Users {
 
         System.out.println(userA);
         System.out.println(copyA);
-
     }
 }

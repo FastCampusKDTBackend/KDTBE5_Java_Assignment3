@@ -8,15 +8,12 @@ import java.util.*;
 public class Electronics {
 
     private static final int DEFAULT_CAPACITY = 10; // Default initial capacity
-
     private static final Electronic[] EMPTY_ELECTRONIC_LIST = {};
 
     private static Electronic[] electronicList;
-
     private static Electronics electronicsInstance;
 
     private int size;
-
     private int capacity;
 
     Electronics(){
@@ -147,6 +144,5 @@ public class Electronics {
 
         Optional<Electronic[]> companyNameGroupAPPLE = electronics.groupByCompanyName(CompanyName.SAMSUNG);
         companyNameGroupAPPLE.ifPresent(value -> System.out.println(Arrays.toString(value)));
-
     }
 }

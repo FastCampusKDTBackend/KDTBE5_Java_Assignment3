@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class User {
+
     private String userId;
     private String userPassword;
     private String userPhoneNumber;
