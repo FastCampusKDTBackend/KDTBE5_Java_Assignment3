@@ -15,19 +15,24 @@ import java.util.Objects;
  * @since 2023-04-12
  */
 public class Users {
+  
   /**
    * 최초 생성시 10명의 사용자 관리가 가능
    */
   private static final int DEFAULT_CAPACITY = 10;
+  
   /**
    * 관리 인원이 늘어날 경우 더블링 적용
    */
   private static int currentCapacity = DEFAULT_CAPACITY;
+  
   /**
    * 현재 관리중인 사용자 수
    */
   private static int currentSize = 0;
+  
   private static final Users users = new Users();
+  
   private User[] userList;
   
   public Users() {
