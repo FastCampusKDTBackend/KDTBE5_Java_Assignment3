@@ -1,6 +1,6 @@
 package practice1;
 
-public enum CompanyName {
+public enum Company {
     SAMSUNG,
     LG,
     APPLE,

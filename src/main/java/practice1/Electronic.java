@@ -7,12 +7,12 @@ import java.util.Objects;
 public class Electronic {
     private Long productNo;
     private String modelName;
-    private CompanyName companyName;
+    private Company companyName;
     private LocalDate dateOfMade;
     private AuthMethod[] authMethod;
     private static int order = 0;
 
-    public Electronic(String modelName, CompanyName companyName, LocalDate dateOfMade, AuthMethod[] authMethod) {
+    public Electronic(String modelName, Company companyName, LocalDate dateOfMade, AuthMethod[] authMethod) {
         this.modelName = modelName;
         this.companyName = companyName;
         this.dateOfMade = dateOfMade;
@@ -68,12 +68,12 @@ public class Electronic {
         this.modelName = modelName;
     }
 
-    public CompanyName getCompanyName() {
+    public Company getCompanyName() {
         return companyName;
     }
 
-    public void setCompanyName(CompanyName companyName) {
-        this.companyName = companyName;
+    public void setCompanyName(Company company) {
+        this.companyName = company;
     }
 
     public LocalDate getDateOfMade() {

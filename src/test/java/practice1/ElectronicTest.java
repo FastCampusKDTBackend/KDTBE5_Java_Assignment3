@@ -15,7 +15,7 @@ class ElectronicTest {
     void setUp() {
         electronic = new Electronic(
                 "SM-1000",
-                CompanyName.SAMSUNG,
+                Company.SAMSUNG,
                 LocalDate.of(2023, 04, 17),
                 new AuthMethod[]{AuthMethod.PIN, AuthMethod.PATTERN});
     }
