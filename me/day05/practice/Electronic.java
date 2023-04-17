@@ -38,7 +38,7 @@ public class Electronic {
 
     private void setProductNo(){
         if (registrationNo >= 10000) setRegistrationNo();
-        productNo = dateOfMade + String.format("%4d", registrationNo).replaceAll(" ", "0");
+        productNo = dateOfMade + String.format("%4d", registrationNo).replace(" ", "0");
     }
 
     private void setRegistrationNo(){
