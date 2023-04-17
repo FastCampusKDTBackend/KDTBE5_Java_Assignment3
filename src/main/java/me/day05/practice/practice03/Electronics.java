@@ -90,8 +90,8 @@ public class Electronics {
   }
   
   /**
-   * @param companyName 제조사
-   * @return 해당 회사에서 생상된 전자기기들을 담고 있는 배열
+   * @param companyName 제조회사
+   * @return 해당 회사에서 생산된 전자기기들을 담고 있는 배열
    */
   public Electronic[] groupByCompanyName(CompanyName companyName) {
     return Arrays.stream(electronicList)
@@ -101,8 +101,8 @@ public class Electronics {
   }
   
   /**
-   * @param authMethod 인증 방법
-   * @return 해당 인증 방법을 지원하는 전자기기들을 담고 있는 배열
+   * @param authMethod 인증방법
+   * @return 해당 인증방법을 지원하는 전자기기들을 담고 있는 배열
    */
   public Electronic[] groupByAuthMethod(AuthMethod authMethod) {
     return Arrays.stream(electronicList)
