@@ -6,14 +6,14 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Electronic {
-    private String productNo;   //제품 일련번호
-    private static int serialNum = 0;   //제품 일련번호의 등록 순서
-    private String modelName;  //전자기기 모델명
-    private Company companyName;  //제조 회사명
-    private String dateOfMade;  //생산일자
-    private AuthMethod[] authMethod;    //본인인증 방법
+    private String productNo;  
+    private static int serialNum = 0;   
+    private String modelName; 
+    private Company companyName; 
+    private String dateOfMade; 
+    private AuthMethod[] authMethod;    
 
-    //생성자
+
     public Electronic(){
         serialNum++;
         productNo = LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd")) + String.format("%04d",serialNum);
@@ -53,7 +53,7 @@ public class Electronic {
                 ", authMethod:" + Arrays.toString(authMethod) + "}";
     }
 
-    //setter&getter
+
     public String getProductNo() {
         return productNo;
     }

@@ -5,17 +5,17 @@ import java.util.Objects;
 
 public class User {
 
-    private String userId;				//회원 아이디
-    private String userPassword;		//회원 비밀번호
-    private int userPhoneNumber;		//회원 핸드폰번호
-    private String userEmail;			//회원 이메일
-    private int userBirthDate;			//회원 생년월일
-    private String[] electronicDevices;	//사용중인 전자 제품들
-    public LocalTime registerTime;		//회원 정보가 등록된 시스템 시간
+    private String userId;				
+    private String userPassword;		
+    private int userPhoneNumber;		
+    private String userEmail;			
+    private int userBirthDate;			
+    private String[] electronicDevices;	
+    public LocalTime registerTime;		
 
-    //생성자
+    
     public User(){
-        registerTime = LocalTime.now();	//객체 생성시 시스템 시간으로 자동 설정됨
+        registerTime = LocalTime.now();	
     }
 
     public User(String userId, String userPassword, int userPhoneNumber, String userEmail, int userBirthDate,
@@ -60,7 +60,7 @@ public class User {
                 "}";
     }
 
-    //setter & getter
+    
     public String getUserId() {
         return userId;
     }

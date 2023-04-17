@@ -7,9 +7,8 @@ import java.util.Objects;
 
 public class Users {
 
-    User[] userList;        //User 객체들을 모두 저장하는 배열
+    User[] userList;        
 
-    //1.Users 클래스의 객체를 싱글톤으로 생성하는 함수를 작성하시오.
     private static Users instance;
 
     private Users() {}
@@ -20,7 +19,6 @@ public class Users {
         return instance;
     }
 
-    //2.회원 아이디 userId를 통해 인자로 주어진 회원번호에 해당하는 회원을 반환하는 함수를 작성하시오.
     User findByUserId(String userId) {
         for(User user : userList) {
             if(user.getUserId().equals(userId))
@@ -29,7 +27,6 @@ public class Users {
         return null;
     }
 
-    //3.인자로 주어진 회원 정보를 깊은 복사 (deepCopy) 하는 함수를 작성하시오.
     User copy(User user) {
         User userCopy = new User(user.getUserId(), user.getUserPassword(), user.getUserPhoneNumber()
                 , user.getUserEmail(), user.getUserBirthDate(), user.getElectronicDevices());
@@ -54,7 +51,6 @@ public class Users {
         return "{userList:" + Arrays.toString(userList) + "}";
     }
 
-    //getter&setter
     public User[] getUserList() {
         return userList;
     }
