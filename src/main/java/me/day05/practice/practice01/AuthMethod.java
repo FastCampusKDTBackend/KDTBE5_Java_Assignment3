@@ -2,9 +2,10 @@ package me.day05.practice.practice01;
 
 /**
  * 본인인증 방법 - 지문, 패턴, 핀, 얼굴인식
- * <p>
+ *
  * @author YongHo Shin
- * @since v0.1 (2023-04-12)
+ * @version 0.1
+ * @since 2023-04-12
  */
 public enum AuthMethod {
   FINGER_PRINT("지문인증"),
