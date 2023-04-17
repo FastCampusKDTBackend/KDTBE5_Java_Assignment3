@@ -16,19 +16,24 @@ import java.util.Objects;
  * @since 2023-04-12
  */
 public class Electronics {
+  
   /**
    * 최초 생성시 최대 10대까지 관리.
    */
   private static final int DEFAULT_CAPACITY = 10;
+  
   /**
    * 관리 기기가 늘어날 경우 더블링 적용
    */
   private static int currentCapacity = DEFAULT_CAPACITY;
+  
   /**
    * 현재 관리중인 기기 수
    */
   private static int currentSize = 0;
+  
   private static final Electronics electronics = new Electronics();
+  
   private Electronic[] electronicList;
   
   private Electronics() {
