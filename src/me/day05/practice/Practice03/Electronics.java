@@ -38,8 +38,8 @@ public class Electronics {
     }
 
     public Electronic[] groupByCompanyName(Company company) {
-        List<Electronic> electronics = Arrays.stream(electronicList).filter(list -> list.getCompanyName().equals(company)).toList();
-        return electronics.toArray(new Electronic[electronics.size()]);
+        Electronic[] electronics = Arrays.stream(electronicList).filter(list -> list.getCompanyName().equals(company)).toArray(Electronic[]::new);
+        return electronics;
     }
 
     public Electronic[] groupByAuthMethod(AuthMethod authMethod) {
