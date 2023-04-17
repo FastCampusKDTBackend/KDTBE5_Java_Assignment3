@@ -14,9 +14,13 @@ public class Electronic {
     private LocalDate dateOfMade;
     private ArrayList<AuthMethod> authMethod;
 
-    public Electronic() {
+    private Electronic() {
         serialNum++;
         setProductNo();
+    }
+
+    public Electronic(String productNo) {
+        this.productNo = productNo;
     }
 
     public Electronic(String modelName, CompanyName companyName, LocalDate dateOfMade, ArrayList<AuthMethod> authMethod) {

@@ -46,7 +46,7 @@ public class Electronics {
     /*
     * Q.전자제품 일련번호 productNo를 통해 인자로 주어진 일련번호에 해당하는 전자제품을 반환하는 함수를 작성하시오.*/
     public Electronic findByProductNo(String productNo){
-        Electronic newElectronic = new Electronic();
+        Electronic newElectronic = new Electronic(productNo);
         for ( int i = 0; i < electronicList.length; i++){
             if (electronicList[i].getProductNo().equals(productNo)) {
                 newElectronic = electronicList[i];
@@ -76,10 +76,6 @@ public class Electronics {
     * Q. 전자제품들 중 인자로 주어진 인증 방법을 찾아서 하나의 배열에 반환하는 함수를 작성하시오.*/
     public Electronic[] groupByAuthMethod(AuthMethod authMethod){
         Electronic[] authMethodArray = new Electronic[arrSize];
-
-        System.out.println("=================");
-        System.out.println(Arrays.toString(electronicList));
-        System.out.println("=================");
         int cnt = 0;
         for ( int i = 0; i < electronicList.length; i++){
             if(electronicList[i] != null && electronicList[i].getAuthMethod().contains(authMethod)){

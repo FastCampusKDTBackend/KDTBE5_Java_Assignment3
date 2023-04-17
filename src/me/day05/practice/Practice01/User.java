@@ -19,6 +19,10 @@ public class User {
         registerTime = LocalDateTime.now();
     }
 
+    public User(String userId) {
+        this.userId = userId;
+    }
+
     public User(String userId, String userPassword) {
         this();
         this.userId = userId;

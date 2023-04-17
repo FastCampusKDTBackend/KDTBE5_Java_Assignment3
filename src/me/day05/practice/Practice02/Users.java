@@ -54,7 +54,7 @@ public class Users {
     * Q. 회원 아이디 userId를 통해 인자로 주어진 회원번호에 해당하는 회원을 반환하는 함수를 작성하시오.
     * */
     public User findByUserId(String userId){
-        User newUser = new User();
+        User newUser = new User(userId);
         for ( int i = 0; i < userList.length; i++){
             if (userList[i].getUserId().equals(userId)) {
                 newUser = userList[i];
