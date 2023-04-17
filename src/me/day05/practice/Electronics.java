@@ -53,6 +53,10 @@ public class Electronics {
         return instance;
     }
 
+    /*
+        assignment 3-2
+        find product by product Number
+    */
     public Electronic findByProductNo(String productNo){
         Optional<Electronic> electronicOpt = electronicList
                 .stream().filter(user -> productNo.equals(user.getProductNo()))
@@ -64,6 +68,10 @@ public class Electronics {
         return null;
     }
 
+    /*
+        assignment 3-3
+        find product list by company name
+    */
     public List<Electronic> groupByCompanyName(Company company) {
         List<Electronic> electronics = electronicList
                 .stream().filter(electronic -> electronic.getCompanyName().equals(company.name()))
@@ -76,6 +84,10 @@ public class Electronics {
        return electronics;
     }
 
+    /*
+        assignment 3-4
+        find product list by authentication method
+    */
     public List<Electronic> groupByAuthMethod(AuthMethod authMethod) {
         List<Electronic> electronics = electronicList
                 .stream().filter(electronic -> electronic.getAuthMethod().contains(authMethod))
@@ -87,13 +99,14 @@ public class Electronics {
         }
         return electronics;
     }
-
-    @Override
-    public String toString() {
-        return "Electronics{" +
-                "electronicList=" + electronicList +
-                '}';
+    /*
+        assignment 3
+        getter(), setter(), hashcode(), equals(), toString()
+    */
+    public static void setInstance(Electronics instance) {
+        Electronics.instance = instance;
     }
+
 
     public List<Electronic> getElectronicList() {
         return electronicList;
@@ -101,6 +114,13 @@ public class Electronics {
 
     public void setElectronicList(List<Electronic> electronicList) {
         this.electronicList = electronicList;
+    }
+
+    @Override
+    public String toString() {
+        return "Electronics{" +
+                "electronicList=" + electronicList +
+                '}';
     }
 
     @Override

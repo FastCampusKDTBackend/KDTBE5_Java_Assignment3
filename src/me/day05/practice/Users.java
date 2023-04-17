@@ -3,6 +3,7 @@ package me.day05.practice;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class Users {
@@ -71,4 +72,38 @@ public class Users {
         //System.out.println(userList.toString());
     }
 
+    /*
+        assignment 2
+        getter(), setter(), hashcode(), equals(), toString()
+    */
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
+
+    public static void setInstance(Users instance) {
+        Users.instance = instance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Users users)) return false;
+        return Objects.equals(userList, users.userList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userList);
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "userList=" + userList +
+                '}';
+    }
 }
