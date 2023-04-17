@@ -14,13 +14,17 @@ public class Electronic {
     private List<AuthMethod> authMethod;
 
     Electronic(Builder builder){
-        //System.out.println(builder.toString());
         modelName = builder.modelName;
         companyName = builder.companyName;
         dateOfMade = builder.dateOfMade;
         productNo = this.dateOfMade.format(DateTimeFormatter.ofPattern("yyMMdd"))+String.format("%04d",productId+1);
         authMethod = builder.authMethod;
-        productId++;
+        //init productId > 9998
+        if (productId > 9998) {
+            productId = 0;
+        } else {
+            productId++;
+        }
     }
 
     /*

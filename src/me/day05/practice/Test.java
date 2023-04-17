@@ -1,6 +1,7 @@
 package me.day05.practice;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class Test {
     public static void main(String[] args) {
@@ -13,10 +14,9 @@ public class Test {
 
         //initialize Electronics for test
         electronics.initElectronics();
+        System.out.println();
         //initialize Users for test
         users.initUsers();
-
-        Electronic electronic;
 
 
         System.out.println("\n\n\n======================");
@@ -50,28 +50,67 @@ public class Test {
         System.out.println("Original User : " + originalUser + "");
         System.out.println("Copy User : " + copyUser + "\n");
 
-
-        //find by product number
         System.out.println("\n\n\n======================");
-        System.out.println("Find by Product No\n");
-        electronic = electronics.findByProductNo("2101210001");
-        printObject(electronic);
+        System.out.println("Use List");
+        //find by user ID
+        System.out.println("Find by User ID\n");
+        System.out.println("Find User ID : tester10");
+        printObject(users.findByUserId("tester10"));
+        System.out.println("Find User ID : tester01");
+        printObject(users.findByUserId("tester01"));
+        //find by product number
+        System.out.println("\nFind by Product No\n");
+        System.out.println("Find Product No : 2101210001");
+        printObject(electronics.findByProductNo("2101210001"));
         System.out.println("Find Product No : 2104210001");
-        electronic = electronics.findByProductNo("2104210001");
-        printObject(electronic);
+        printObject(electronics.findByProductNo("2104210001"));
 
 
         //find by Company
         System.out.println("\nFind by Company\n");
+        System.out.println("Find Product Made by : GOOGLE");
         printObject(electronics.groupByCompanyName(Company.GOOGLE));
         System.out.println("Find Product Made by : SAMSUNG");
         printObject(electronics.groupByCompanyName(Company.SAMSUNG));
 
-        //find by AuthMethod
         System.out.println("\nFind by AuthMethod\n");
+        System.out.println("Find Product by Provide AuthMethod : FOOT");
         printObject(electronics.groupByAuthMethod(AuthMethod.FOOT));
         System.out.println("Find Product by Provide AuthMethod : Pattern");
         printObject(electronics.groupByAuthMethod(AuthMethod.PATTERN));
+
+
+
+        System.out.println("\n\nUse Array");
+        //find by user ID
+        System.out.println("Find by User ID\n");
+        System.out.println("Find User ID : tester10");
+        printObject(users.findByUserIdFromArray("tester10"));
+        System.out.println("Find User ID : tester01");
+        printObject(users.findByUserIdFromArray("tester01"));
+        //find by product number
+        System.out.println("\nFind by Product No\n");
+        System.out.println("Find Product No : 2101210001");
+        printObject(Arrays.asList(electronics.findByProductNoFromArray("2104210001")));
+        System.out.println("Find Product No : 2101210005");
+        printObject(Arrays.asList(electronics.findByProductNoFromArray("2104210005")));
+
+        //find by Company
+        System.out.println("\nFind by Company\n");
+        System.out.println("Find Product Made by : GOOGLE");
+        printObject(Arrays.asList(electronics.groupByCompanyNameFromArray(Company.GOOGLE)));
+        System.out.println("Find Product Made by : SAMSUNG");
+        printObject(Arrays.asList(electronics.groupByCompanyNameFromArray(Company.SAMSUNG)));
+
+
+        //find by AuthMethod
+        System.out.println("\nFind by AuthMethod\n");
+        System.out.println("Find Product by Provide AuthMethod : FOOT");
+        printObject(electronics.groupByAuthMethod(AuthMethod.FOOT));
+        System.out.println("Find Product by Provide AuthMethod : Pattern");
+        printObject(Arrays.asList(electronics.groupByAuthMethodFromArray(AuthMethod.PATTERN)));
+
+
 
     }
 
