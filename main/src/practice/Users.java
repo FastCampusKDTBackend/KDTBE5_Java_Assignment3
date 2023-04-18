@@ -28,14 +28,20 @@ public class Users {
         return null;
     }
 
-    public User Copy(User user) {
+    public User Copy(User user) throws CloneNotSupportedException {
         User copyUser = new User();
         copyUser.setUserId(user.getUserId());
         copyUser.setUserEmail(user.getUserEmail());
         copyUser.setUserPassword(user.getUserPassword());
         copyUser.setUserBirthDate(user.getUserBirthDate());
         copyUser.setUserPhoneNumber(user.getUserPhoneNumber());
-        copyUser.setElectronicDevices(Arrays.copyOf(user.getElectronicDevices(), user.getElectronicDevices().length));
+
+        Electronic[] originalUserElectronic = user.getElectronicDevices();
+        Electronic[] newElectronic = new Electronic[originalUserElectronic.length];
+        for (int i = 0; i < originalUserElectronic.length; i++) {
+            newElectronic[i] = (Electronic) originalUserElectronic[i].clone();
+        }
+        copyUser.setElectronicDevices(newElectronic);
         return copyUser;
     }
 }

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Electronic {
+public class Electronic implements Cloneable {
     private static int sequenceNumber = 0;
 
     String productNo;
@@ -86,5 +86,10 @@ public class Electronic {
                 ", dateOfMade=" + dateOfMade +
                 ", authMethod=" + Arrays.toString(authMethod) +
                 '}';
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
