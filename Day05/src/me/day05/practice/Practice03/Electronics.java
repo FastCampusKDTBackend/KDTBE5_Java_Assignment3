@@ -70,7 +70,7 @@ public class Electronics {
         Electronic[] groupByCompanyNameArray= new Electronic[size];
         int j=0;
         for(int i=0;i<size;i++){
-            if(electronicList[i].getCompany().equals(company)){
+            if(electronicList[i].getCompany().equals(company.name())){
                 groupByCompanyNameArray[j++]=electronicList[i];
             }
         }
@@ -82,7 +82,7 @@ public class Electronics {
         Electronic[] groupByAuthMethodArray= new Electronic[size];
         int j=0;
         for(int i=0;i<size;i++){
-            if(electronicList[i].getCompany().equals(authMethod)){
+            if(electronicList[i].getCompany().equals(authMethod.name())){
                 groupByAuthMethodArray[j++]=electronicList[i];
             }
         }
