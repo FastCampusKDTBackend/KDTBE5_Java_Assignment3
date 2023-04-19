@@ -1,4 +1,4 @@
-package me.day05.practice.practice01;
+package me.day05.practice.Practice01;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -14,6 +14,19 @@ public class User {
 
 
     public User(){}// default 생성자
+
+    public User(String userId){
+        this.userId = userId;
+    }
+
+    public User(String userId, String userPassword, int userPhoneNumber, String userEmail, int userBirthDate, Electronic[] electronicDevices) {
+        this.userId = userId;
+        this.userPassword = userPassword;
+        this.userPhoneNumber = userPhoneNumber;
+        this.userEmail = userEmail;
+        this.userBirthDate = userBirthDate;
+        this.electronicDevices = electronicDevices;
+    }
 
     public String getUserId() {
         return userId;
@@ -70,24 +83,12 @@ public class User {
 
         User user = (User) o;
 
-        if (userPhoneNumber != user.userPhoneNumber) return false;
-        if (userBirthDate != user.userBirthDate) return false;
-        if (!userId.equals(user.userId)) return false;
-        if (!userPassword.equals(user.userPassword)) return false;
-        if (!userEmail.equals(user.userEmail)) return false;
-        // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        return Arrays.equals(electronicDevices, user.electronicDevices);
+        return Objects.equals(userId, user.userId);
     }
 
     @Override
     public int hashCode() {
-        int result = userId.hashCode();
-        result = 31 * result + userPassword.hashCode();
-        result = 31 * result + userPhoneNumber;
-        result = 31 * result + userEmail.hashCode();
-        result = 31 * result + userBirthDate;
-        result = 31 * result + Arrays.hashCode(electronicDevices);
-        return result;
+        return userId.hashCode();
     }
 
     @Override
