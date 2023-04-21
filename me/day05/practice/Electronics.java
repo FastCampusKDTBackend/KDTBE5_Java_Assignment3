@@ -63,7 +63,7 @@ public class Electronics {
         List<Electronic> temp = new ArrayList<>();
 
         for (Electronic electronic : electronicList)
-            if (electronic.isContainAuthMethod(authMethod))
+            if (electronic.isContainsAuthMethod(authMethod))
                 temp.add(electronic);
 
         Electronic[] authMethodNameGroup =

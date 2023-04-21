@@ -39,15 +39,11 @@ public class Electronic {
     }
 
     private void setProductNo(){
-        if (registrationNo > MAX_REGISTRATION_NUMBER) resetRegistrationNo();
+        if (registrationNo > MAX_REGISTRATION_NUMBER) registrationNo = 1;
         productNo = dateOfMade + String.format("%4d", registrationNo).replace(" ", "0");
     }
 
-    private void resetRegistrationNo(){
-        registrationNo = 1;
-    }
-
-    public boolean isContainAuthMethod(AuthMethod authMethod){
+    public boolean isContainsAuthMethod(AuthMethod authMethod){
         for (AuthMethod auth : this.authMethod)
             if (authMethod.equals(auth)) return true;
         return false;
