@@ -10,6 +10,8 @@ public class Electronic {
     enum CompanyName { SAMSUNG, LG, APPLE }
     enum AuthMethod { FINGERPRINT, PIN, PATTERN, FACE }
 
+    private static final int MAX_REGISTRATION_NUMBER = 9999;
+
     private static int registrationNo;
 
     private String productNo;
@@ -37,12 +39,12 @@ public class Electronic {
     }
 
     private void setProductNo(){
-        if (registrationNo >= 10000) setRegistrationNo();
+        if (registrationNo >= MAX_REGISTRATION_NUMBER) setRegistrationNo();
         productNo = dateOfMade + String.format("%4d", registrationNo).replace(" ", "0");
     }
 
     private void setRegistrationNo(){
-        registrationNo %= 10000;
+        registrationNo = 1;
     }
 
     public boolean isContainAuthMethod(AuthMethod authMethod){
