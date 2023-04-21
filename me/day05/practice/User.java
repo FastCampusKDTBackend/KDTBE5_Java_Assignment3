@@ -15,7 +15,6 @@ public class User {
     private LocalDate registerTime;
 
     User() {
-
         setRegisterTime();
     }
 
@@ -94,15 +93,6 @@ public class User {
     public LocalDate getRegisterTime() {
         return registerTime;
     }
-
-//        private void validatePhoneNumberFormat(String userPhoneNumber){}
-//        private String formatPhoneNumber(String userPhoneNumber){ validatePhoneNumberFormat(userPhoneNumber) }
-//
-//        private void validateUserEmailFormat(String userPhoneNumber){}
-//        private String formatUserEmail(String userPhoneNumber){ validateUserEmailFormat(String userPhoneNumber) }
-//
-//        private void validateUserBirthDateFormat(String userBirthDate){}
-//        private String formatUserBirthDate(String userBirthDate){ validateUserBirthDateFormat(String userBirthDate) }
 
     @Override
     public int hashCode() {
