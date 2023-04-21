@@ -39,11 +39,11 @@ public class Electronic {
     }
 
     private void setProductNo(){
-        if (registrationNo >= MAX_REGISTRATION_NUMBER) setRegistrationNo();
+        if (registrationNo >= MAX_REGISTRATION_NUMBER) resetRegistrationNo();
         productNo = dateOfMade + String.format("%4d", registrationNo).replace(" ", "0");
     }
 
-    private void setRegistrationNo(){
+    private void resetRegistrationNo(){
         registrationNo = 1;
     }
 
