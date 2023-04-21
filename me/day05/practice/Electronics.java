@@ -7,7 +7,6 @@ import java.util.*;
 
 public class Electronics {
 
-    private static final int DEFAULT_CAPACITY = 10; // Default initial capacity
     private static final Electronic[] EMPTY_ELECTRONIC_LIST = {};
 
     private static Electronic[] electronicList;
@@ -16,7 +15,7 @@ public class Electronics {
     private int size;
     private int capacity;
 
-    Electronics(){
+    private Electronics(){
         electronicList = EMPTY_ELECTRONIC_LIST;
     }
 
@@ -41,12 +40,11 @@ public class Electronics {
         List<Electronic> temp = new ArrayList<>();
 
         for (Electronic electronic : electronicList)
-            // 테스트용 임시 조건 ( electronic != null )
-            if (electronic != null && electronic.getCompanyName().equals(company))
+            if (electronic.getCompanyName().equals(company))
                 temp.add(electronic);
 
         Electronic[] companyNameGroup =
-                temp.isEmpty() ? null : ElectronicArrayUtil.listToArray(temp);
+                temp.isEmpty() ? null : listToArray(temp);
 
         return Optional.ofNullable(companyNameGroup);
     }
@@ -65,14 +63,22 @@ public class Electronics {
         List<Electronic> temp = new ArrayList<>();
 
         for (Electronic electronic : electronicList)
-            // 테스트용 임시 조건 ( electronic != null )
-            if (electronic != null && electronic.isContainAuthMethod(authMethod))
+            if (electronic.isContainAuthMethod(authMethod))
                 temp.add(electronic);
 
         Electronic[] authMethodNameGroup =
-                temp.isEmpty() ? null : ElectronicArrayUtil.listToArray(temp);
+                temp.isEmpty() ? null : listToArray(temp);
 
         return Optional.ofNullable(authMethodNameGroup);
+    }
+
+    private Electronic[] listToArray(List<Electronic> list){
+        Electronic[] array = new Electronic[list.size()];
+
+        for (int i = 0; i < array.length; i++)
+            array[i] = list.get(i);
+
+        return array;
     }
 
     public int getSize() {
@@ -109,32 +115,5 @@ public class Electronics {
                 "size=" + size +
                 ", capacity=" + capacity +
                 ", electronicList= " + Arrays.toString(electronicList) + " }";
-    }
-
-    //==================================== TEST CODE ====================================//
-    public void add (Electronic electronic) {
-        if (electronicList == EMPTY_ELECTRONIC_LIST)
-            electronicList = new Electronic[DEFAULT_CAPACITY];
-        /* 배열 크기 체크하고 늘리는 로직 구현 할 것 */
-        electronicList[size++] = electronic;
-    }
-
-    public static void main(String[] args) {
-        Electronic iPhone13 = new Electronic("아이폰13", CompanyName.APPLE, new AuthMethod[]{AuthMethod.FACE, AuthMethod.PIN, AuthMethod.PATTERN});
-        Electronic iPhone12 = new Electronic("아이폰12", CompanyName.APPLE, new AuthMethod[]{AuthMethod.FACE, AuthMethod.PIN, AuthMethod.PATTERN});
-        Electronic galaxyS22 = new Electronic("갤럭시S22", CompanyName.SAMSUNG, new AuthMethod[]{AuthMethod.FINGERPRINT, AuthMethod.PIN, AuthMethod.PATTERN});
-
-        Electronics electronics = getInstance();
-        electronics.add(iPhone13);
-        electronics.add(iPhone12);
-        electronics.add(galaxyS22);
-
-//        System.out.println(electronics);
-
-        Optional<Electronic[]> authMethodGroupPIN = electronics.groupByAuthMethod(AuthMethod.FACE);
-        authMethodGroupPIN.ifPresent(value -> System.out.println(Arrays.toString(value)));
-
-        Optional<Electronic[]> companyNameGroupAPPLE = electronics.groupByCompanyName(CompanyName.SAMSUNG);
-        companyNameGroupAPPLE.ifPresent(value -> System.out.println(Arrays.toString(value)));
     }
 }
