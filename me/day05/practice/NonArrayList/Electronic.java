@@ -15,7 +15,7 @@ public class Electronic {
     private String modelName;
     private CompanyName companyName;
     private LocalDateTime dateOfMade;
-    private  AuthMethod[] authMethod;
+    private AuthMethod[] authMethod;
 
     public Electronic(String modelName, CompanyName companyName, LocalDateTime dateOfMade, AuthMethod[] authMethod) {
         this.productNo = productNumGenerator();
