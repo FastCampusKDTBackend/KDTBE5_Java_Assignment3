@@ -15,7 +15,7 @@ public class Users {
     private int size;
     private int capacity;
 
-    Users(){
+    private Users(){
         userList = EMPTY_USER_LIST;
     }
 
@@ -74,37 +74,5 @@ public class Users {
                 "size=" + size +
                 ", capacity=" + capacity +
                 ", userList= " + Arrays.toString(userList) + " }";
-    }
-
-    //==================================== TEST CODE ====================================//
-    public void add (User user) {
-        if (userList == EMPTY_USER_LIST)
-            userList = new User[DEFAULT_CAPACITY];
-        /* 배열 크기 체크하고 늘리는 로직 구현 할 것 */
-        userList[size++] = user;
-    }
-
-    public static void main(String[] args) {
-        User userA = new User("A", "aaa", "aaaa", "aaa@aaa.com", "aaa", new Electronic[]{new Electronic()});
-        User userB = new User("B", "bbb", "bbbb", "bbb@bbb.com", "bbb", new Electronic[]{new Electronic()});
-        User userC = new User("C", "ccc", "cccc", "ccc@ccc.com", "ccc", new Electronic[]{new Electronic()});
-
-        Users userList = getInstance();
-        userList.add(userA);
-        userList.add(userB);
-        userList.add(userC);
-
-        System.out.println("findByID test");
-        Optional<User> a = userList.findById("A");
-        a.ifPresent(System.out::println);
-        System.out.println();
-
-
-        System.out.println("deep copy Test");
-        User copyA = userList.copy(userA);
-        copyA.setUserId("AA");
-
-        System.out.println(userA);
-        System.out.println(copyA);
     }
 }
