@@ -37,7 +37,6 @@ public class Electronics {
 
     // TODO: 3. 전자제품들 중 인자로 주어진 제조 회사를 찾아서 하나의 배열에 반환하는 함수를 작성하시오.
     public Optional<Electronic[]> groupByCompanyName(CompanyName company){
-        Electronic[] companyNameGroup = null;
 
         List<Electronic> temp = new ArrayList<>();
 
@@ -46,11 +45,8 @@ public class Electronics {
             if (electronic != null && electronic.getCompanyName().equals(company))
                 temp.add(electronic);
 
-        if (!temp.isEmpty()) {
-            companyNameGroup = new Electronic[temp.size()];
-            for (int i = 0; i < companyNameGroup.length; i++)
-                companyNameGroup[i] = temp.get(i);
-        }
+        Electronic[] companyNameGroup =
+                temp.isEmpty() ? null : ElectronicArrayUtil.listToArray(temp);
 
         return Optional.ofNullable(companyNameGroup);
     }
@@ -65,7 +61,6 @@ public class Electronics {
 
     // TODO: 4. 전자제품들 중 인자로 주어진 인증 방법을 찾아서 하나의 배열에 반환하는 함수를 작성하시오.
     public Optional<Electronic[]> groupByAuthMethod(AuthMethod authMethod){
-        Electronic[] authMethodNameGroup = null;
 
         List<Electronic> temp = new ArrayList<>();
 
@@ -74,11 +69,8 @@ public class Electronics {
             if (electronic != null && electronic.isContainAuthMethod(authMethod))
                 temp.add(electronic);
 
-        if (!temp.isEmpty()) {
-            authMethodNameGroup = new Electronic[temp.size()];
-            for (int i = 0; i < authMethodNameGroup.length; i++)
-                authMethodNameGroup[i] = temp.get(i);
-        }
+        Electronic[] authMethodNameGroup =
+                temp.isEmpty() ? null : ElectronicArrayUtil.listToArray(temp);
 
         return Optional.ofNullable(authMethodNameGroup);
     }
