@@ -1,5 +1,6 @@
 package me.day05.practice.NonArrayList;
 
+
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Arrays;
@@ -21,6 +22,15 @@ public class User {
         this.userEmail = userEmail;
         this.userBirthDate = userBirthDate;
         this.registerTime = LocalDateTime.now(ZoneId.systemDefault());
+    }
+
+    public User(String userId, String userPassword, String userPhoneNumber, String userEmail, String userBirthDate, LocalDateTime registerTime) {
+        this.userId = userId;
+        this.userPassword = userPassword;
+        this.userPhoneNumber = userPhoneNumber;
+        this.userEmail = userEmail;
+        this.userBirthDate = userBirthDate;
+        this.registerTime = registerTime;
     }
 
     public User(String userId, String userPassword, String userPhoneNumber, String userEmail, String userBirthDate, Electronic[] electronicDevices, LocalDateTime registerTime) {
@@ -102,7 +112,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "pratice.NonArrayList.User{" +
                 "userId='" + userId + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 ", userPhoneNumber='" + userPhoneNumber + '\'' +
@@ -111,16 +121,5 @@ public class User {
                 ", electronicDevices=" + Arrays.toString(electronicDevices) +
                 ", registerTime=" + registerTime +
                 '}';
-    }
-
-    public User copy() {
-        return new User(
-                this.getUserId(),
-                this.getUserPassword(),
-                this.getUserPhoneNumber(),
-                this.getUserEmail(),
-                this.getUserBirthDate(),
-                this.getElectronicDevices(),
-                this.getRegisterTime());
     }
 }

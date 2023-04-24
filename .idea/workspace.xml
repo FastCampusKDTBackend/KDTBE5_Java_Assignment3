@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9f85a5e-ac53-4912-9da3-44564c78dab7" name="변경" comment="" />
+    <list default="true" id="e9f85a5e-ac53-4912-9da3-44564c78dab7" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/ObjectList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/AuthMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/AuthMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Electronic.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Electronic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Electronics.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Electronics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Users.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,11 +24,37 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="JoowonKim" />
+                    <option name="lastUsedInstant" value="1682333394" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1682333393" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -34,13 +70,18 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "20",
-    "last_opened_file_path": "C:/Users/User/Desktop/Refactoring/KDTBE5_Java_Assignment3",
+    "last_opened_file_path": "C:/Users/User/Desktop/FastCampus_BackEnd/ReviewCode/day05",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "프로젝트",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Refactoring\KDTBE5_Java_Assignment3\me\day05\practice\ArrayList" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
@@ -49,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682332876172</updated>
-      <workItem from="1682332878308" duration="304000" />
+      <workItem from="1682332878308" duration="1269000" />
     </task>
     <servers />
   </component>

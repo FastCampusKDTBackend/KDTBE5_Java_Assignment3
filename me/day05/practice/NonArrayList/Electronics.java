@@ -6,11 +6,12 @@ public class Electronics {
     private static Electronics electronicsInstance;
 
     public static Electronics getInstance() {
-        if(electronicsInstance == null) {
+        if (electronicsInstance == null) {
             electronicsInstance = new Electronics();
         }
         return electronicsInstance;
     }
+
     private static int listSize = 10;
     private Electronic[] electronicsList;
     private int index = 0;
@@ -55,15 +56,15 @@ public class Electronics {
     }
 
     public void showDeviceList() {
-        for(int i = 0; i < electronicsList.length; i++) {
-            if(electronicsList[i] == null) return;
+        for (int i = 0; i < electronicsList.length; i++) {
+            if (electronicsList[i] == null) return;
             System.out.println(electronicsList[i]);
         }
     }
 
     public Electronic findByProductNo(String productNo) {
-        for(int i = 0; i < listSize; i++) {
-            if(electronicsList[i].getProductNo().equals(productNo)) return electronicsList[i];
+        for (int i = 0; i < listSize; i++) {
+            if (electronicsList[i].getProductNo().equals(productNo)) return electronicsList[i];
         }
         System.out.println("Found Nothing");
         return null;
@@ -87,3 +88,4 @@ public class Electronics {
 
 
 }
+
