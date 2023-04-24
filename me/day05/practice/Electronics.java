@@ -24,7 +24,7 @@ public class Electronics {
 				.orElse(null);
 	}
 
-	Electronic[] groupByCompanyName(Company company) {
+	Electronic[] groupByCompany(Company company) {
 		return Arrays.stream(this.electronicList)
 				.filter(electronic -> electronic.getCompanyName().equals(company))
 				.toArray(Electronic[]::new);
