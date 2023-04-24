@@ -7,32 +7,20 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Electronic {
+    private static int devices = 0;
 
-    public enum CompanyName {SAMSUNG, LG, APPLE}
-    public enum AuthMethod {FINGERPRINT, PATTERN, PIN, FACE};
-
-    private String  productNo;
+    private String productNo;
     private String modelName;
-    private CompanyName companyName;
+    private Company companyName;
     private LocalDateTime dateOfMade;
-    private  AuthMethod[] authMethod;
+    private AuthMethod[] authMethod;
 
-    public Electronic(String modelName, CompanyName companyName, LocalDateTime dateOfMade, AuthMethod[] authMethod) {
+    public Electronic(String modelName, Company companyName, LocalDateTime dateOfMade, AuthMethod[] authMethod) {
         this.productNo = productNumGenerator();
         this.modelName = modelName;
         this.companyName = companyName;
         this.dateOfMade = dateOfMade;
         this.authMethod = authMethod;
-    }
-
-    static int devices = 0;
-    public String productNumGenerator() {
-        devices++;
-        LocalDate now = LocalDate.now();
-        String dayOfNo = now.format(DateTimeFormatter.ofPattern("YYMMdd"));
-        dayOfNo += String.format("%04d", devices);
-
-        return dayOfNo;
     }
 
     public String getProductNo() {
@@ -51,11 +39,11 @@ public class Electronic {
         this.modelName = modelName;
     }
 
-    public CompanyName getCompanyName() {
+    public Company getCompanyName() {
         return companyName;
     }
 
-    public void setCompanyName(CompanyName companyName) {
+    public void setCompanyName(Company companyName) {
         this.companyName = companyName;
     }
 
@@ -92,7 +80,7 @@ public class Electronic {
 
     @Override
     public String toString() {
-        return "Electronic{" +
+        return "pratice.NonArrayList.Electronic{" +
                 "productNo='" + productNo + '\'' +
                 ", modelName='" + modelName + '\'' +
                 ", companyName=" + companyName +
@@ -100,4 +88,25 @@ public class Electronic {
                 ", authMethod=" + Arrays.toString(authMethod) +
                 '}';
     }
+
+    public boolean hasAuthMethodType(AuthMethod auth) {
+        for (int i = 0; i < authMethod.length; i++) {
+            if (authMethod[i].equals(auth)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private String productNumGenerator() {
+        devices++;
+        StringBuilder sb = new StringBuilder();
+        LocalDate now = LocalDate.now();
+        sb.append(now.format(DateTimeFormatter.ofPattern("YYMMdd")));
+        sb.append(String.format("%04d", devices));
+
+        return String.valueOf(sb);
+    }
+
+
 }
