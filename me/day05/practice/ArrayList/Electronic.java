@@ -1,8 +1,10 @@
 package me.day05.practice.ArrayList;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Electronic {
@@ -12,43 +14,38 @@ public class Electronic {
     private String modelName;
     private Company companyName;
     private LocalDate dateOfMade;
-    private ArrayList<AuthMethod> authMethod = new ArrayList<>();
+    private List<AuthMethod> authMethods;
 
     public Electronic(String modelName, Company companyName) {
-        this.productNo = setProductNo();
+        this.productNo = generateProductNo();
         this.modelName = modelName;
         this.companyName = companyName;
-        this.dateOfMade = setDateOfMade();
+        this.dateOfMade = LocalDate.now();
+        this.authMethods = new ArrayList<>();
     }
 
     public Electronic(String modelName, Company companyName, AuthMethod auth) {
-        this.productNo = setProductNo();
+        this.productNo = generateProductNo();
         this.modelName = modelName;
         this.companyName = companyName;
-        this.dateOfMade = setDateOfMade();
-        authMethod.add(auth);
+        this.dateOfMade = LocalDate.now();
+        this.authMethods = new ArrayList<>();
     }
 
     //일련번호를 만드는 메소드
     //int형으로 반환하려 했으나, 2147483647를 초과해서 문자열로 저장하는 방식으로 수정
-    private String setProductNo() {
+    private String generateProductNo() {
 
         modelCount++;
+        StringBuilder sb = new StringBuilder();
         LocalDate now = LocalDate.now();
-        String productNo = now.format(DateTimeFormatter.ofPattern("YYMMdd"));
-        productNo += String.format("%04d", modelCount);
+        sb.append(now.format(DateTimeFormatter.ofPattern("YYMMdd")));
+        sb.append(String.format("%04d", modelCount));
 
-        return productNo;
+        return String.valueOf(sb);
     }
+
     //생산일자를 적용하는 메소드
-    private LocalDate setDateOfMade() {
-        LocalDate now = LocalDate.now();
-        return now;
-    }
-
-    public void setAuthMethod(AuthMethod auth) {
-        authMethod.add(auth);
-    }
 
     public static int getModelCount() {
         return modelCount;
@@ -82,8 +79,8 @@ public class Electronic {
         return dateOfMade;
     }
 
-    public ArrayList<AuthMethod> getAuthMethod() {
-        return authMethod;
+    public List<AuthMethod> getAuthMethod() {
+        return authMethods;
     }
 
     @Override
@@ -91,12 +88,12 @@ public class Electronic {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Electronic that = (Electronic) o;
-        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && companyName == that.companyName && Objects.equals(dateOfMade, that.dateOfMade) && Objects.equals(authMethod, that.authMethod);
+        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && companyName == that.companyName && Objects.equals(dateOfMade, that.dateOfMade) && Objects.equals(authMethods, that.authMethods);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productNo, modelName, companyName, dateOfMade, authMethod);
+        return Objects.hash(productNo, modelName, companyName, dateOfMade, authMethods);
     }
 
     @Override
@@ -107,7 +104,7 @@ public class Electronic {
                 ", modelName='" + modelName + '\'' +
                 ", companyName=" + companyName.getCompanyName() +
                 ", dateOfMade=" + dateOfMade +
-                ", authMethod=" + authMethod +
+                ", authMethod=" + authMethods +
                 '}';
     }
 }
