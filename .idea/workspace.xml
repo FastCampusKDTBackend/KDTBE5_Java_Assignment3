@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9f85a5e-ac53-4912-9da3-44564c78dab7" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/ObjectList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/AuthMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/AuthMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Electronic.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Electronic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Electronics.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Electronics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/NonArrayList/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/me/day05/practice/ArrayList/AuthMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/me/day05/practice/ArrayList/AuthMethod.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "20",
-    "last_opened_file_path": "C:/Users/User/Desktop/FastCampus_BackEnd/ReviewCode/day05",
+    "last_opened_file_path": "C:/Users/User/Desktop/FastCampus_BackEnd/JavaGrammarPractice/WorkSpace",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "프로젝트",
     "project.structure.proportion": "0.0",
@@ -90,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682332876172</updated>
-      <workItem from="1682332878308" duration="1269000" />
+      <workItem from="1682332878308" duration="1911000" />
     </task>
     <servers />
   </component>
