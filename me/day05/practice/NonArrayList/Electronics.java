@@ -1,7 +1,6 @@
 package me.day05.practice.NonArrayList;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 public class Electronics {
     private static Electronics electronicsInstance;
@@ -12,11 +11,9 @@ public class Electronics {
         }
         return electronicsInstance;
     }
-
+    private static int listSize = 10;
     private Electronic[] electronicsList;
     private int index = 0;
-    //기본 10개로 설정
-    private static int listSize = 10;
 
     private Electronics() {
         electronicsList = new Electronic[listSize];
@@ -45,7 +42,7 @@ public class Electronics {
 
     @Override
     public String toString() {
-        return "Electronics{" +
+        return "pratice.NonArrayList.Electronics{" +
                 "electronicsList=" + Arrays.toString(electronicsList) +
                 ", index=" + index +
                 '}';
@@ -72,47 +69,21 @@ public class Electronics {
         return null;
     }
 
-    public Electronic[] groupByCompanyName(Electronic.CompanyName company) {
-        int size = 0;
-        int index = 0;
+    public Electronic[] groupByCompanyName(Company company) {
+        Electronic[] companyGroup = Arrays.stream(electronicsList)
+                .filter(device -> device != null && device.getCompanyName().equals(company))
+                .toArray(Electronic[]::new);
 
-        for(int i = 0; i < electronicsList.length; i++) {
-            if (electronicsList[i] == null) break;
-            if (electronicsList[i].getCompanyName().equals(company)) size++;
-        }
-        Electronic[] grouping = new Electronic[size];
-        for(int i = 0; i < electronicsList.length; i++) {
-            if (electronicsList[i] == null) break;
-            if(electronicsList[i].getCompanyName().equals(company)) {
-                grouping[index] = electronicsList[i];
-                index++;
-            }
-        }
-        return grouping;
+        return companyGroup;
     }
 
-    public Electronic[] groupByAuthMethod(Electronic.AuthMethod authMethod) {
-        int size = 0;
-        int index = 0;
-        for(int i = 0; i < electronicsList.length; i++) {
-            if (electronicsList[i] == null) break;
-            for (int j = 0; j < electronicsList[i].getAuthMethod().length; j++) {
-                if(electronicsList[i].getAuthMethod()[j] == null) break;
-                if(electronicsList[i].getAuthMethod()[j].equals(authMethod)) size++;
-            }
-        }
-        Electronic[] grouping = new Electronic[size];
-        for(int i = 0; i < electronicsList.length; i++) {
-            if (electronicsList[i] == null) break;
-            for (int j = 0; j < electronicsList[i].getAuthMethod().length; j++) {
-                if(electronicsList[i].getAuthMethod()[j] == null) break;
-                if(electronicsList[i].getAuthMethod()[j].equals(authMethod)){
-                    grouping[index] = electronicsList[i];
-                    index++;
-                };
-            }
-        }
-        return grouping;
+    public Electronic[] groupByAuthMethod(AuthMethod auth) {
+        Electronic[] authGroup = Arrays.stream(electronicsList)
+                .filter(device -> device != null && device.hasAuthMethodType(auth))
+                .toArray(Electronic[]::new);
+
+        return authGroup;
     }
+
 
 }
