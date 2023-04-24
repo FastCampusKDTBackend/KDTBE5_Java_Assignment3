@@ -6,6 +6,7 @@ import me.day05.practice.Company;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Electronic {
@@ -14,7 +15,7 @@ public class Electronic {
     private String modelName;
     private Company companyName;
     private String dateOfMade;
-    private ArrayList<AuthMethod> authMethod;
+    private List<AuthMethod> authMethod;
 
     public Electronic() {
         this.productNo=setProductNo();
@@ -32,7 +33,9 @@ public class Electronic {
     private String setProductNo(){
         productCnt=(productCnt>9999)?1:productCnt;    // productCnt 9999 넘어가면 1로 초기화
         String day=LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd"));
-        String regNum=String.format("%04d", (productCnt++));
+        String regNum=String.format("%04d", productCnt);
+        productCnt++;
+
         return day+regNum;
     }
 
@@ -76,7 +79,7 @@ public class Electronic {
         this.dateOfMade = dateOfMade;
     }
 
-    public ArrayList<AuthMethod> getAuthMethod() {
+    public List<AuthMethod> getAuthMethod() {
         return authMethod;
     }
 

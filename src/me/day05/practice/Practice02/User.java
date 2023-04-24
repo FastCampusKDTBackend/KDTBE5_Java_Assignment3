@@ -4,6 +4,7 @@ import me.day05.practice.Practice01.Electronic;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class User implements Cloneable{
@@ -12,7 +13,7 @@ public class User implements Cloneable{
     private String userPhoneNumber;
     private String userEmail;
     private String userBirthDate;
-    private ArrayList<Electronic> electronicDevices ;
+    private List<Electronic> electronicDevices ;
     private LocalDateTime registerTime;
 
     public User() {
@@ -70,7 +71,7 @@ public class User implements Cloneable{
         this.userBirthDate = userBirthDate;
     }
 
-    public ArrayList<Electronic> getElectronicDevices() {
+    public List<Electronic> getElectronicDevices() {
         return electronicDevices;
     }
 

@@ -6,6 +6,7 @@ import me.day05.practice.Company;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Electronic {
@@ -14,14 +15,14 @@ public class Electronic {
     private String modelName;
     private Company companyName;
     private String dateOfMade;
-    private ArrayList<AuthMethod> authMethod;
+    private List<AuthMethod> authMethod;
 
     public Electronic() {
         this.productNo=setProductNo();
         this.authMethod=new ArrayList<AuthMethod>();
     }
 
-    public Electronic(String modelName, Company companyName, String dateOfMade, ArrayList<AuthMethod> authMethod) {
+    public Electronic(String modelName, Company companyName, String dateOfMade, List<AuthMethod> authMethod) {
         this.productNo=setProductNo();
         this.modelName = modelName;
         this.companyName = companyName;
@@ -76,11 +77,11 @@ public class Electronic {
         this.dateOfMade = dateOfMade;
     }
 
-    public ArrayList<AuthMethod> getAuthMethod() {
+    public List<AuthMethod> getAuthMethod() {
         return authMethod;
     }
 
-    public void setAuthMethod(ArrayList<AuthMethod> authMethod) {
+    public void setAuthMethod(List<AuthMethod> authMethod) {
         this.authMethod = authMethod;
     }
 

@@ -7,17 +7,17 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class Electronics {
-    private static Electronics instance;
+    private static Electronics electronics;
     private static Electronic[] electronicList;
 
     private Electronics() {
     }
 
     public static Electronics getInstance() {
-        if(instance==null) {
-            instance = new Electronics();
+        if(electronics ==null) {
+            electronics = new Electronics();
         }
-        return instance;
+        return electronics;
     }
 
     public Optional<Electronic> findByProductNo(String productNo){

@@ -4,16 +4,18 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class Users {
-    private static Users instance;
+    private static Users users;
     private static User[] userList;
 
     private Users() {
     }
+
     public static Users getInstance() {
-        if(instance==null) {
-            instance = new Users();
+        if(users ==null) {
+            users = new Users();
         }
-        return instance;
+
+        return users;
     }
 
     public Optional<User> findByUserId(String userId){
