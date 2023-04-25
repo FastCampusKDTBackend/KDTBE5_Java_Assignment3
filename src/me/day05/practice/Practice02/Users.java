@@ -11,7 +11,7 @@ public class Users{
     /*
      * Q. Users 클래스의 객체를 싱글톤으로 생성하는 함수를 작성하시오.
      * */
-    final int arrSize = 10;
+    private final int arrSize = 10;
     private User[] userList = new User[arrSize];
     private static Users instance; // 정적 참조 변수
 
@@ -24,6 +24,7 @@ public class Users{
         if(instance == null){
             instance = new Users();
         }
+
         return instance;
     }
 
