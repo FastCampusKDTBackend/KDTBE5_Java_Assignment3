@@ -21,7 +21,7 @@ public class User implements Cloneable{
         this.registerTime=LocalDateTime.now();
     }
 
-    public User(String userId, String userPassword, String userPhoneNumber, String userEmail, String userBirthDate, ArrayList<Electronic> electronicDevices) {
+    public User(String userId, String userPassword, String userPhoneNumber, String userEmail, String userBirthDate, List<Electronic> electronicDevices) {
         this.userId = userId;
         this.userPassword = userPassword;
         this.userPhoneNumber = userPhoneNumber;
@@ -75,7 +75,7 @@ public class User implements Cloneable{
         return electronicDevices;
     }
 
-    public void setElectronicDevices(ArrayList<Electronic> electronicDevices) {
+    public void setElectronicDevices(List<Electronic> electronicDevices) {
         this.electronicDevices = electronicDevices;
     }
 

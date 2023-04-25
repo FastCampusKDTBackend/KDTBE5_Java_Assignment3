@@ -22,7 +22,7 @@ public class Electronic {
         this.authMethod=new ArrayList<AuthMethod>();
     }
 
-    public Electronic(String modelName, Company companyName, String dateOfMade, ArrayList<AuthMethod> authMethod) {
+    public Electronic(String modelName, Company companyName, String dateOfMade, List<AuthMethod> authMethod) {
         this.productNo=setProductNo();
         this.modelName = modelName;
         this.companyName = companyName;
@@ -83,7 +83,7 @@ public class Electronic {
         return authMethod;
     }
 
-    public void setAuthMethod(ArrayList<AuthMethod> authMethod) {
+    public void setAuthMethod(List<AuthMethod> authMethod) {
         this.authMethod = authMethod;
     }
 

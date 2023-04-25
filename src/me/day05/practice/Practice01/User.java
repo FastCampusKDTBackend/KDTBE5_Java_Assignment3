@@ -2,6 +2,7 @@ package me.day05.practice.Practice01;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class User {
@@ -10,7 +11,7 @@ public class User {
     private String userPhoneNumber;
     private String userEmail;
     private String userBirthDate;
-    private ArrayList<Electronic> electronicDevices ;
+    private List<Electronic> electronicDevices ;
     private LocalDateTime registerTime;
 
     public User() {
@@ -18,7 +19,7 @@ public class User {
         this.registerTime=LocalDateTime.now();
     }
 
-    public User(String userId, String userPassword, String userPhoneNumber, String userEmail, String userBirthDate, ArrayList<Electronic> electronicDevices) {
+    public User(String userId, String userPassword, String userPhoneNumber, String userEmail, String userBirthDate, List<Electronic> electronicDevices) {
         this.userId = userId;
         this.userPassword = userPassword;
         this.userPhoneNumber = userPhoneNumber;
@@ -68,11 +69,11 @@ public class User {
         this.userBirthDate = userBirthDate;
     }
 
-    public ArrayList<Electronic> getElectronicDevices() {
+    public List<Electronic> getElectronicDevices() {
         return electronicDevices;
     }
 
-    public void setElectronicDevices(ArrayList<Electronic> electronicDevices) {
+    public void setElectronicDevices(List<Electronic> electronicDevices) {
         this.electronicDevices = electronicDevices;
     }
 
