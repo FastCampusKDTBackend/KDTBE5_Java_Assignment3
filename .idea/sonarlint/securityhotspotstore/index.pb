@@ -1,8 +1,6 @@
 
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-^
-.me/day05/practice/NonArrayList/AuthMethod.java,c\b\cbdb97565661f664b3fa52c0ba2bc341b0668bac
 X
 (me/day05/practice/NonArrayList/User.java,8\d\8d4de6ce991bad94fa75c49c8d884ecfe39d7cf2
 Y
@@ -25,9 +23,3 @@ U
 %me/day05/practice/ArrayList/Main.java,5\5\554552ba7ea70d4d9eb4f055e71160c66ab12807
 U
 %me/day05/practice/ArrayList/User.java,f\5\f553f46ff2b7408c9b2683c39d04ee5d0e715116
-[
-+me/day05/practice/ArrayList/Electronic.java,0\1\01457a6bfe687e43226369e19d0a1f15d69e7dfc
-V
-&me/day05/practice/ArrayList/Users.java,5\f\5f83bd3178cd0d0fa51f36aefb1bf1a26d5f5287
-\
-,me/day05/practice/ArrayList/Electronics.java,a\1\a16cd9a7e42a104066b91035380ccb25449b24c4

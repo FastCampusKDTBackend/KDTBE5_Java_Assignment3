@@ -1,26 +1,29 @@
 package me.day05.practice.ArrayList;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Electronics {
     private static Electronics electronicsInstance;
-    private ArrayList<Electronic> electronicList = new ArrayList<>();
+    private List<Electronic> electronicList = new ArrayList<>();
 
-    private Electronics(){}
+    private Electronics() {
+    }
 
     public static Electronics getElectronicsInstance() {
-        if(electronicsInstance == null) {
+        if (electronicsInstance == null) {
             electronicsInstance = new Electronics();
         }
         return electronicsInstance;
     }
 
-    public ArrayList<Electronic> getElectronicList() {
+    public List<Electronic> getElectronicList() {
         return electronicList;
     }
 
-    public void setElectronicList(ArrayList<Electronic> electronicList) {
+    public void setElectronicList(List<Electronic> electronicList) {
         this.electronicList = electronicList;
     }
 
@@ -44,37 +47,27 @@ public class Electronics {
                 '}';
     }
 
-    public Electronic findByProductNo(String productNo) throws NullPointerException{
-        for (int i = 0; i < electronicList.size(); i++) {
-            if(electronicList.get(i).getProductNo().equals(productNo)) {
-                return electronicList.get(i);
-            }
+    public Electronic findByProductNo(String productNo) throws NullPointerException {
+        Electronic target = electronicList.stream().filter(electronic -> electronic.getProductNo().equals(productNo))
+                .findFirst()
+                .orElse(null);
+        if (target == null) {
+            System.out.println("Found Nothing");
+            throw new NullPointerException();
         }
-        System.out.println("Found Nothing");
-        return null;
+        return target;
     }
 
-    public ArrayList<Electronic> groupByCompanyName (Company company) {
-        ArrayList<Electronic> companyGroupList = new ArrayList<>();
-
-        for(int i = 0; i < electronicList.size(); i++) {
-            if(electronicList.get(i).getCompanyName().equals(company)) {
-                companyGroupList.add(electronicList.get(i));
-            }
-        }
-        return companyGroupList;
+    public List<Electronic> groupByCompanyName(Company company) {
+        return (List<Electronic>) electronicList.stream()
+                .filter(electronic -> electronic.getCompanyName().equals(company))
+                .toList();
     }
 
-    public ArrayList<Electronic> groupByAuthMethod(AuthMethod authMethod) {
-        ArrayList<Electronic> authMethodGroupList = new ArrayList<>();
-
-        for(int i = 0; i < electronicList.size(); i++) {
-            if(electronicList.get(i).getAuthMethod().contains(authMethod)) {
-                authMethodGroupList.add(electronicList.get(i));
-            }
-        }
-
-        return authMethodGroupList;
+    public List<Electronic> groupByAuthMethod(AuthMethod authMethod) {
+        return electronicList.stream()
+                .filter(electronic -> electronic.getAuthMethod().contains(authMethod))
+                .toList();
     }
 
     public void addDevice(Electronic electronic) {
