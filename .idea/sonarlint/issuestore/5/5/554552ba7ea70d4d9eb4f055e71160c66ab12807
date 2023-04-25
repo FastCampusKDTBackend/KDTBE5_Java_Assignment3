@@ -1,0 +1,36 @@
+
+c
+java:S1192"FDefine a constant instead of duplicating this literal "TV-01" 3 times.(½‚û˜8Üğà—û0
+s
+java:S1192"QDefine a constant instead of duplicating this literal "VaccumCleaner-01" 3 times.(ÊŸØÙúÿÿÿÿ8Üğà—û0
+d
+java:S1192"GDefine a constant instead of duplicating this literal "Mac-01" 3 times.(ç÷ùÅ8Üğà—û0
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½‚û˜8İğà—û0
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç÷ùÅ8İğà—û0
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊŸØÙúÿÿÿÿ8İğà—û0
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùŠ»÷ùÿÿÿÿ8İğà—û0
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù¯ÖĞ8İğà—û0
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¿­­ÿÿÿÿÿ8İğà—û0
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â¼ÖÁøÿÿÿÿ8İğà—û0
+r	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½Ò›øÿÿÿÿ8İğà—û0
+m	java:S117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë£²É8İğà—û0
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(éÌòšùÿÿÿÿ
+^
+java:S1854?"<Remove this useless assignment to local variable "authTest".(¡ïçÍøÿÿÿÿ8äğà—û0
+\
+java:S1854":Remove this useless assignment to local variable "user02".(» îÿÿÿÿÿ8äğà—û0
+U	java:S106	"9Replace this use of System.out or System.err by a logger.(¿Êù˜8äğà—û0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(æ€­‚øÿÿÿÿ8åğà—û0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8åğà—û0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(©ĞÔ¹8åğà—û0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(¸ù‰şøÿÿÿÿ8åğà—û0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8åğà—û0
+M
+java:S1481"+Remove this unused "user02" local variable.(» îÿÿÿÿÿ8åğà—û0
+Z	java:S1067"9Replace this use of System.out or System.err by a logger.(çå©ùÿÿÿÿ8æğà—û0
+X	java:S1259"<This block of commented-out lines of code should be removed.(£Æîí8çğà—û0
+Z	java:S106B"9Replace this use of System.out or System.err by a logger.(¬®÷½ÿÿÿÿÿ8çğà—û0
+Z	java:S106E"9Replace this use of System.out or System.err by a logger.(¼¾ûÉúÿÿÿÿ8çğà—û0
+U	java:S106F"9Replace this use of System.out or System.err by a logger.(ü‚üÁ8çğà—û0
+U	java:S106G"9Replace this use of System.out or System.err by a logger.(ƒÈÄŒ8çğà—û0
+Z	java:S106H"9Replace this use of System.out or System.err by a logger.(Ñ“¬Ôıÿÿÿÿ8èğà—û0
