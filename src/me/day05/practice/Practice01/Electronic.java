@@ -1,8 +1,8 @@
 package me.day05.practice.Practice01;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -12,7 +12,7 @@ public class Electronic {
     private String modelName;
     private CompanyName companyName;
     private LocalDate dateOfMade;
-    private ArrayList<AuthMethod> authMethod;
+    private AuthMethod[] authMethod;
 
     private Electronic() {
         serialNum++;
@@ -23,7 +23,7 @@ public class Electronic {
         this.productNo = productNo;
     }
 
-    public Electronic(String modelName, CompanyName companyName, LocalDate dateOfMade, ArrayList<AuthMethod> authMethod) {
+    public Electronic(String modelName, CompanyName companyName, LocalDate dateOfMade, AuthMethod[] authMethod) {
         this();
         this.modelName = modelName;
         this.companyName = companyName;
@@ -52,6 +52,8 @@ public class Electronic {
         } else {
             sb.append(serialNum);
         }
+        String order = String.format("%04d", serialNum);
+        String date = LocalDate.now(ZoneId.systemDefault()).toString().replace("-", "").substring(2);
 
         productNo = String.valueOf(sb);
         return productNo;
@@ -81,11 +83,11 @@ public class Electronic {
         this.dateOfMade = dateOfMade;
     }
 
-    public ArrayList<AuthMethod> getAuthMethod() {
+    public AuthMethod[] getAuthMethod() {
         return authMethod;
     }
 
-    public void setAuthMethod(ArrayList<AuthMethod> authMethod) {
+    public void setAuthMethod(AuthMethod[] authMethod) {
         this.authMethod = authMethod;
     }
 
@@ -109,7 +111,7 @@ public class Electronic {
                 ", modelName='" + modelName + '\'' +
                 ", companyName=" + companyName +
                 ", dateOfMade=" + dateOfMade +
-                ", authMethod=" + authMethod +
+                ", authMethod=" + Arrays.toString(authMethod) +
                 '}';
     }
 

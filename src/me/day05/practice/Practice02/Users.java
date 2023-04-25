@@ -6,21 +6,20 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Users {
+public class Users{
 
     /*
      * Q. Users 클래스의 객체를 싱글톤으로 생성하는 함수를 작성하시오.
      * */
-
     final int arrSize = 10;
-    private static Users instance;
     private User[] userList = new User[arrSize];
+    private static Users instance; // 정적 참조 변수
 
-
-    public Users() {
-
+    private Users() {
+        // private 생성자
     }
 
+    // 객체 변환 정적 메서드
     public static Users getInstance() {
         if(instance == null){
             instance = new Users();
@@ -55,10 +54,10 @@ public class Users {
     * */
     public User findByUserId(String userId){
         User newUser = new User(userId);
-        for ( int i = 0; i < userList.length; i++){
-            if (userList[i].getUserId().equals(userId)) {
-                newUser = userList[i];
-                System.out.println(userList[i]);
+        for (User user : userList) {
+            if (user.getUserId().equals(userId)) {
+                newUser = user;
+                System.out.println(user);
                 break;
             }
         }
@@ -67,6 +66,7 @@ public class Users {
 
     /*
     * Q. 인자로 주어진 회원 정보를 깊은 복사 (deepCopy) 하는 함수를 작성하시오.*/
+
     public static User copy(User user) {
         User copiedUser = new User();
 
@@ -93,7 +93,7 @@ public class Users {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
-        return arrSize == users.arrSize && Arrays.equals(userList, users.userList);
+        return Arrays.equals(userList, users.userList);
     }
 
     @Override

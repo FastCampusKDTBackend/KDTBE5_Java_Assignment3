@@ -4,8 +4,10 @@ import me.day05.practice.Practice02.Users;
 import me.day05.practice.Practice03.Electronics;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
+
+import static me.day05.practice.Practice01.AuthMethod.*;
+
 
 public class userTest {
     public static void main(String[] args) {
@@ -20,21 +22,8 @@ public class userTest {
 
         System.out.println(userTae);
 
-        ArrayList<AuthMethod> authArray = new ArrayList<>();
-        ArrayList<AuthMethod> authArray2 = new ArrayList<>();
 
-        authArray.add(AuthMethod.FINGERPRINT);
-        authArray.add(AuthMethod.PIN);
-        authArray2.add(AuthMethod.PATTERN);
-        authArray2.add(AuthMethod.FACE);
-        authArray2.add(AuthMethod.FINGERPRINT);
-
-        Electronic electronic = new Electronic("Galaxy", CompanyName.SAMSUNG, LocalDate.now(), authArray);
-        Electronic electronic2 = new Electronic("IPhone", CompanyName.APPLE, LocalDate.now(), authArray2);
-
-        System.out.println(electronic);
-        System.out.println(electronic2);
-
+        //Users user = new Users(); - 싱글톤 패턴이기 때문에 불가능
         Users user = Users.getInstance();
         User userHyoung = user.createUser("Hyoung", "c8901");
         User userTaeHyoung = user.createUser("TaeHyoung", "d9021");
@@ -48,22 +37,28 @@ public class userTest {
         System.out.println(user.findByUserId("Hyoung"));
         System.out.println(Users.copy(userHyoung));
 
+        System.out.println("===========================");
 
-        System.out.println("=============");
+        Electronics electronics = Electronics.getInstance();
 
-        Electronics elec = Electronics.getInstance();
-        Electronic elecA = elec.createElectronic("Galaxy", CompanyName.SAMSUNG, LocalDate.now(), authArray);
-        Electronic elecB = elec.createElectronic("IPhone", CompanyName.APPLE, LocalDate.now(), authArray2);
+        AuthMethod[] authArray = {FINGERPRINT, PIN};
+        AuthMethod[] authArray2 = {PATTERN, FACE};
 
-        System.out.println(elecA);
-        System.out.println(elec.findByProductNo("2304180003"));
-        System.out.println(Arrays.toString(elec.groupByCompanyName(CompanyName.SAMSUNG)));
-        System.out.println(elecB);
-        System.out.println(Arrays.toString(elec.groupByAuthMethod(AuthMethod.FINGERPRINT)));
+        Electronic electronic = electronics.createElectronic("Galaxy", CompanyName.SAMSUNG, LocalDate.now(), authArray);
+        Electronic electronic2 = electronics.createElectronic("IPhone", CompanyName.APPLE, LocalDate.now(), authArray2);
 
+        System.out.println(electronic);
+        System.out.println(electronic2);
 
+        System.out.println("===========================");
 
+        Electronic electronicsA = electronics.createElectronic("Galaxy", CompanyName.SAMSUNG, LocalDate.now(), authArray);
+        Electronic electronicsB = electronics.createElectronic("IPhone", CompanyName.APPLE, LocalDate.now(), authArray2);
 
-
+        System.out.println(electronicsA);
+        System.out.println(electronics.findByProductNo("2304250003"));
+        System.out.println(Arrays.toString(electronics.groupByCompanyName(CompanyName.SAMSUNG)));
+        System.out.println(Arrays.toString(electronicsB.getAuthMethod()));
+        System.out.println(Arrays.toString(electronics.groupByAuthMethod(FINGERPRINT)));
     }
 }

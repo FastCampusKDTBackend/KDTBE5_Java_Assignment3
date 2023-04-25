@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class User {
-
     private String userId;
     private String userPassword;
     private String userPhoneNumber;
@@ -27,7 +26,6 @@ public class User {
         this();
         this.userId = userId;
         this.userPassword = userPassword;
-
     }
 
     public User(String userId, String userPassword, String userPhoneNumber, String userEmail, LocalDate userBirthDate, String[] electronicDevices) {
