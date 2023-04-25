@@ -33,7 +33,8 @@ public class Electronic {
     private String setProductNo(){
         productCnt=(productCnt>9999)?1:productCnt;    // productCnt 9999 넘어가면 1로 초기화
         String day=LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd"));
-        String regNum=String.format("%04d", (productCnt++));
+        String regNum=String.format("%04d", productCnt);
+        productCnt++;
         return day+regNum;
     }
 
