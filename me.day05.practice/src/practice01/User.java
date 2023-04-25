@@ -1,8 +1,7 @@
-package Practice01;
+package practice01;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -27,7 +26,6 @@ public class User {
         this.size = 0;
     }
 
-    //생성자로 User data를 생성할 때는 User의 생일을 텍스트 형식으로 입력받아 LocaDate포맷으로 변환해서 저장
     public User(String userId, String userPassword, String userPhoneNumber, String userEmail, LocalDate userBirthDate) {
         this();
         this.userId = userId;
@@ -38,12 +36,7 @@ public class User {
     }
 
     public User(String userId, String userPassword, String userPhoneNumber, String userEmail, LocalDate userBirthDate, Electronic[] electronicDevices) {
-        this();
-        this.userId = userId;
-        this.userPassword = userPassword;
-        this.userPhoneNumber = userPhoneNumber;
-        this.userEmail = userEmail;
-        this.userBirthDate = userBirthDate;
+        this(userId, userPassword, userPhoneNumber, userEmail, userBirthDate);
         this.electronicDevices = electronicDevices;
     }
 

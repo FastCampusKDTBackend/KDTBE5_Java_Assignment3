@@ -1,25 +1,21 @@
-package Practice01;
+package practice01;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Objects;
 
 public class Electronic {
-    public enum Company {SAMSUNG, LG, APPLE}
-
-    public enum AuthMethod {FINGERPRINT, PATTERN, PIN, FACE}
-
-    private static int seqNo = 0; //총 객체수 저장
-    private final String productNo; //제품번호 -> 자동 생성
+//    private static int seqNo = 0; //총 객체수 저장
+    private final String productNo; //제품번호 -> GenerateSeqNo 클래스에서 받아오기(자동생성)
     private String modelName; //전자기기 모델명
     private Company companyName; //제조 회사명 -> enum에서 선택
     private LocalDate dateOfMade; //생산일자
     private AuthMethod[] authMethods; //본인 인증 방법 -> 다수의 인증 방법이 존재할 수 있음
 
+    GenerateSeqNo generateSeqNo = GenerateSeqNo.getInstance();
+
     public Electronic() {
-        this.productNo = setProductNo();
+        this.productNo = generateSeqNo.getSeqNo();
     }
 
     public Electronic(String modelName, Company companyName, LocalDate dateOfMade) {
@@ -30,19 +26,16 @@ public class Electronic {
     }
 
     public Electronic(String modelName, Company companyName, LocalDate dateOfMade, AuthMethod[] authMethods) {
-        this();
-        this.modelName = modelName;
-        this.dateOfMade = dateOfMade;
-        this.companyName = companyName;
+        this(modelName, companyName, dateOfMade);
         this.authMethods = authMethods;
     }
 
-    private String setProductNo() {
-        seqNo++;
-        seqNo = (seqNo > 9999) ? 1 : seqNo; //sequence number가 9999를 초과하면 다시 1로 초기화
-        return LocalDate.now(ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("yyMMdd"))
-                + String.format("%04d", seqNo);
-    }
+//    private String setProductNo() {
+//        seqNo++;
+//        seqNo = (seqNo > 9999) ? 1 : seqNo; //sequence number가 9999를 초과하면 다시 1로 초기화
+//        return LocalDate.now(ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("yyMMdd"))
+//                + String.format("%04x", seqNo);
+//    }
 
     public String getProductNo() {
         return productNo;

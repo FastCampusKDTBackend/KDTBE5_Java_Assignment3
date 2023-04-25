@@ -1,7 +1,7 @@
 package practice02;
 
-import Practice01.Electronic;
-import Practice01.User;
+import practice01.Electronic;
+import practice01.User;
 
 import java.util.Arrays;
 
@@ -20,8 +20,7 @@ public class Users {
         return users;
     }
 
-
-    public Users() {
+    private Users() {
         userList = new User[DEFAULT_CAPACITY];
         this.capacity = DEFAULT_CAPACITY;
         this.size = 0;
@@ -36,7 +35,7 @@ public class Users {
     }
 
     public User findByUserId(String userId) {
-        if (userId == null) return null;
+        if (userId.isEmpty()) throw new NullPointerException();
 
         //생성된 User 객체 배열에서 인자로 받은 userId를 검색하여 일치하면 반환
         for (User user : userList) {
@@ -47,7 +46,7 @@ public class Users {
     }
 
     public User copy(User user) { //User 객체 복사
-        if (user == null) return null;
+        if (user == null) throw new NullPointerException();
         int size = user.getElectronicDevices().length;
 
         //String과 LocalDate는 셍성자를 이용해서 복사
@@ -70,6 +69,7 @@ public class Users {
             userList[size] = user;
             size++;
         } else {
+            //배열의 size 가 capacity 용량보다 크다면 배열의 capacity 를 늘리고 add 메서드를 재귀적 호출한다.
             extendArray();
             add(user);
         }
