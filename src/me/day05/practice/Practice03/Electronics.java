@@ -24,8 +24,8 @@ public class Electronics {
         return Arrays.stream(electronicList).filter(x->x.getProductNo().equals(productNo)).findFirst();
     }
 
-    public Electronic[] groupByCompanyName(Company company){
-        return (Electronic[]) Arrays.stream(electronicList).filter(x->x.getCompanyName()==company).toArray();
+    public Electronic[] groupByCompany(Company company){
+        return (Electronic[]) Arrays.stream(electronicList).filter(x->x.getCompany().equals(company)).toArray();
     }
 
     public Electronic[] groupByAuthMethod(AuthMethod authMethod){

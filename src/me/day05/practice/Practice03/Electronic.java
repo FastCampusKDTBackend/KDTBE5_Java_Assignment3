@@ -13,7 +13,7 @@ public class Electronic {
     private static int productCnt=1;
     private String productNo;
     private String modelName;
-    private Company companyName;
+    private Company company;
     private String dateOfMade;
     private List<AuthMethod> authMethod;
 
@@ -25,7 +25,7 @@ public class Electronic {
     public Electronic(String modelName, Company companyName, String dateOfMade, List<AuthMethod> authMethod) {
         this.productNo=setProductNo();
         this.modelName = modelName;
-        this.companyName = companyName;
+        this.company = companyName;
         this.dateOfMade = dateOfMade;
         this.authMethod = authMethod;
     }
@@ -63,12 +63,12 @@ public class Electronic {
         this.modelName = modelName;
     }
 
-    public Company getCompanyName() {
-        return companyName;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setCompanyName(Company companyName) {
-        this.companyName = companyName;
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     public String getDateOfMade() {
@@ -92,12 +92,12 @@ public class Electronic {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Electronic that = (Electronic) o;
-        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && companyName == that.companyName && Objects.equals(dateOfMade, that.dateOfMade) && Objects.equals(authMethod, that.authMethod);
+        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && company == that.company && Objects.equals(dateOfMade, that.dateOfMade) && Objects.equals(authMethod, that.authMethod);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productNo, modelName, companyName, dateOfMade, authMethod);
+        return Objects.hash(productNo, modelName, company, dateOfMade, authMethod);
     }
 
     @Override
@@ -105,7 +105,7 @@ public class Electronic {
         return "Electronic{" +
                 "productNo='" + productNo + '\'' +
                 ", modelName='" + modelName + '\'' +
-                ", companyName=" + companyName +
+                ", companyName=" + company +
                 ", dateOfMade='" + dateOfMade + '\'' +
                 ", authMethod=" + authMethod +
                 '}';
