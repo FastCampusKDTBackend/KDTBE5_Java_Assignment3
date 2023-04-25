@@ -1,0 +1,113 @@
+package me.day05.practice.Practice03;
+
+import me.day05.practice.AuthMethod;
+import me.day05.practice.Company;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class Electronic {
+    private static int productCnt=1;
+    private String productNo;
+    private String modelName;
+    private Company company;
+    private String dateOfMade;
+    private List<AuthMethod> authMethod;
+
+    public Electronic() {
+        this.productNo=setProductNo();
+        this.authMethod=new ArrayList<AuthMethod>();
+    }
+
+    public Electronic(String modelName, Company companyName, String dateOfMade, List<AuthMethod> authMethod) {
+        this.productNo=setProductNo();
+        this.modelName = modelName;
+        this.company = companyName;
+        this.dateOfMade = dateOfMade;
+        this.authMethod = authMethod;
+    }
+
+    private String setProductNo(){
+        productCnt=(productCnt>9999)?1:productCnt;    // productCnt 9999 넘어가면 1로 초기화
+        String day=LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd"));
+        String regNum=String.format("%04d", productCnt);
+        productCnt++;
+
+        return day+regNum;
+    }
+
+    public static int getProductCnt() {
+        return productCnt;
+    }
+
+    public static void setProductCnt(int productCnt) {
+        Electronic.productCnt = productCnt;
+    }
+
+    public String getProductNo() {
+        return productNo;
+    }
+
+    public void setProductNo(String productNo) {
+        this.productNo = productNo;
+    }
+
+    public String getModelName() {
+        return modelName;
+    }
+
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public String getDateOfMade() {
+        return dateOfMade;
+    }
+
+    public void setDateOfMade(String dateOfMade) {
+        this.dateOfMade = dateOfMade;
+    }
+
+    public List<AuthMethod> getAuthMethod() {
+        return authMethod;
+    }
+
+    public void setAuthMethod(List<AuthMethod> authMethod) {
+        this.authMethod = authMethod;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Electronic that = (Electronic) o;
+        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && company == that.company && Objects.equals(dateOfMade, that.dateOfMade) && Objects.equals(authMethod, that.authMethod);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(productNo, modelName, company, dateOfMade, authMethod);
+    }
+
+    @Override
+    public String toString() {
+        return "Electronic{" +
+                "productNo='" + productNo + '\'' +
+                ", modelName='" + modelName + '\'' +
+                ", companyName=" + company +
+                ", dateOfMade='" + dateOfMade + '\'' +
+                ", authMethod=" + authMethod +
+                '}';
+    }
+}
