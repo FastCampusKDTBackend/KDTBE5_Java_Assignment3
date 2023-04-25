@@ -21,7 +21,7 @@ public class Electronics {
     }
 
     public Optional<Electronic> findByProductNo(String productNo){
-        return Arrays.stream(electronicList).filter(x->x.getProductNo()==productNo).findFirst();
+        return Arrays.stream(electronicList).filter(x->x.getProductNo().equals(productNo)).findFirst();
     }
 
     public Electronic[] groupByCompanyName(Company company){

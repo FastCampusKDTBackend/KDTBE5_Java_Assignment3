@@ -19,7 +19,7 @@ public class Users {
     }
 
     public Optional<User> findByUserId(String userId){
-        return Arrays.stream(userList).filter(x->x.getUserId()==userId).findFirst();
+        return Arrays.stream(userList).filter(x->x.getUserId().equals(userId)).findFirst();
     }
 
     // User 클래스에 Object.clone() override함
