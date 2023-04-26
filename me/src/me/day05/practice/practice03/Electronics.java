@@ -31,10 +31,10 @@ public class Electronics {
 	}
 	
 	// 실습 3-2. 전자제품 일련번호 productNo를 통해 인자로 주어진 일련번호에 해당하는 전자제품을 반환하는 함수를 작성하시오.
-	public String findByProductNo(String productNo) {
+	public Electronic findByProductNo(String productNo) {
 		for(int i = 0; i < electronicList.length; i++) {
 			if(electronicList[i].getProductNo() == productNo) {
-				return electronicList[i].getModelName(); // Electronics 클래스 toString 재정의 필요.
+				return electronicList[i]; 
 			}
 		}
 		System.out.println("찾는 productNo 가 없습니다.");
