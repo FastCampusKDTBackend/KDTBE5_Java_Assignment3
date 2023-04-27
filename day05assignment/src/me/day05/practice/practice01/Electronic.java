@@ -4,9 +4,7 @@ import me.day05.practice.practice01.constant.AuthMethod;
 import me.day05.practice.practice01.constant.Company;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 public class Electronic {
@@ -15,7 +13,7 @@ public class Electronic {
     private String modelName;
     private Company companyName;
     private String dateOfDate;
-    private AuthMethod[] authMethod;
+    private AuthMethod[] authMethods;
 
     public Electronic(String productNo,
                       String modelName,
@@ -26,7 +24,7 @@ public class Electronic {
         this.modelName = modelName;
         this.companyName = companyName;
         this.dateOfDate = dateOfDate;
-        this.authMethod = new AuthMethod[10];
+        this.authMethods = new AuthMethod[10];
     }
 
     private String generateProductNo() {
@@ -63,11 +61,11 @@ public class Electronic {
         this.dateOfDate = dateOfDate;
     }
 
-    public AuthMethod[] getAuthMethod() {
-        return authMethod;
+    public AuthMethod[] getAuthMethods() {
+        return authMethods;
     }
-    public void setAuthMethod(AuthMethod[] authMethod) {
-        this.authMethod = authMethod;
+    public void setAuthMethods(AuthMethod[] authMethods) {
+        this.authMethods = authMethods;
     }
 
     @Override
@@ -95,7 +93,7 @@ public class Electronic {
                 ", modelName='" + modelName + "'" +
                 ", companyName=" + companyName +
                 ", dateOfDate='" + dateOfDate + "'" +
-                ", authMethod=" + Arrays.toString(authMethod) +
+                ", authMethod=" + Arrays.toString(authMethods) +
                 '}';
     }
 }

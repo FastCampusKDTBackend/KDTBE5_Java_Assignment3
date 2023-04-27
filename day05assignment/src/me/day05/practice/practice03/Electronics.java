@@ -54,7 +54,7 @@ public class Electronics {
     public Electronic[] groupByAuthMethod(AuthMethod authMethod) {
         List<Electronic> electronics = new ArrayList<>();
         for (Electronic electronic : electronicList) {
-            for (AuthMethod method : electronic.getAuthMethod()) {
+            for (AuthMethod method : electronic.getAuthMethods()) {
                 if (authMethod == method) {
                     electronics.add(electronic);
                     break;
