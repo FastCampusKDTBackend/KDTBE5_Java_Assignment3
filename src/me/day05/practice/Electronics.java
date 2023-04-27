@@ -206,9 +206,7 @@ public class Electronics {
 
     @Override
     public String toString() {
-        return "Electronics{" +
-                "electronicList=" + electronicList +
-                '}';
+        return electronicList.toString();
     }
 
     @Override
