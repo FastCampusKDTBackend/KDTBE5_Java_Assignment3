@@ -4,14 +4,13 @@ import me.day05.practice.practice01.Electronic;
 import me.day05.practice.practice01.constant.AuthMethod;
 import me.day05.practice.practice01.constant.Company;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Objects;
 
 public class Electronics {
+    private static final int DEFAULT_SIZE = 50;
     private static Electronics instance;
     private Electronic[] electronicList;
-    private static final int DEFAULT_SIZE = 50;
 
     private Electronics() {
         this.electronicList = new Electronic[DEFAULT_SIZE];
@@ -42,34 +41,20 @@ public class Electronics {
     }
 
     public Electronic[] groupByCompanyName(Company company) {
-        List<Electronic> electronics = new ArrayList<>();
-        for (Electronic electronic : electronicList) {
-            if (electronic.getCompanyName() == company) {
-                electronics.add(electronic);
-            }
-        }
-        return listToElectronicArray(electronics);
+        return Arrays.stream(electronicList)
+                .filter(Objects::nonNull)
+                .filter(electronic -> (electronic.getCompanyName() == company)
+                ).toArray(Electronic[]::new);
     }
 
     public Electronic[] groupByAuthMethod(AuthMethod authMethod) {
-        List<Electronic> electronics = new ArrayList<>();
-        for (Electronic electronic : electronicList) {
-            for (AuthMethod method : electronic.getAuthMethods()) {
-                if (authMethod == method) {
-                    electronics.add(electronic);
-                    break;
-                }
-            }
-        }
-        return listToElectronicArray(electronics);
-    }
-
-    private Electronic[] listToElectronicArray(List<Electronic> list) {
-        Electronic[] electronicArray = new Electronic[list.size()];
-        for (int i = 0; i < electronicArray.length; i++) {
-            electronicArray[i] = list.get(i);
-        }
-        return electronicArray;
+        return Arrays.stream(electronicList)
+                .filter(Objects::nonNull)
+                .filter(electronic ->
+                        Arrays.stream(electronic.getAuthMethods())
+                                .filter(Objects::nonNull)
+                                .anyMatch(method -> (method == authMethod))
+                ).toArray(Electronic[]::new);
     }
 
     @Override
