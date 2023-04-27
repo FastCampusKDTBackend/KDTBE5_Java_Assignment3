@@ -5,9 +5,9 @@ import me.day05.practice.practice01.User;
 import java.util.Arrays;
 
 public class Users {
+    private static final int DEFAULT_SIZE = 50;
     private static Users instance;
     private User[] userList;
-    private static final int DEFAULT_SIZE = 50;
 
     private Users() {
         userList = new User[DEFAULT_SIZE];
