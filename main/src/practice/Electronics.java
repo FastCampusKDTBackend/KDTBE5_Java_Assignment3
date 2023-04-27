@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class Electronics {
 
     private static Electronics electronics = null;
-
     private static final int DEFAULT_CAPACITY = 10;
+
     private Electronic[] electronicList = new Electronic[]{};
     private int size = 0;
     private int capacity = 0;
@@ -45,6 +45,7 @@ public class Electronics {
 
     private Electronics() {
     }
+
     public static Electronics getInstance() {
         if (electronics == null) {
             electronics = new Electronics();
@@ -54,21 +55,21 @@ public class Electronics {
     }
 
     public Electronic findByProductNo(String productNo) {
-        for (int i = 0; i < electronicList.length; i++) {
-            if (electronicList[i].getProductNo().equals(productNo)) {
-                return electronicList[i];
-            }
-        }
-
-        return null;
+        return Arrays.stream(electronicList)
+                .filter(
+                        electronic -> electronic.getProductNo().equals(productNo)
+                )
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 상품입니다."));
     }
 
     public Electronic[] groupByCompanyName(Company company) {
         Electronic[] groupByCompanyElectronic = new Electronic[size];
+
         int count = 0;
         for (int i = 0; i < electronicList.length; i++) {
             if (electronicList[i].getCompany().equals(company)) {
-                groupByCompanyElectronic[count] = electronicList[i];
+                groupByCompanyElectronic[count++] = electronicList[i];
             }
         }
 
@@ -78,12 +79,23 @@ public class Electronics {
     public Electronic[] groupByAuthMethod(AuthMethod authMethod) {
         Electronic[] groupByCompanyElectronic = new Electronic[size];
         int count = 0;
-        for (int i = 0; i < electronicList.length; i++) {
-            if (electronicList[i].getAuthMethod().equals(authMethod)) {
-                groupByCompanyElectronic[count] = electronicList[i];
+        for (Electronic electronic : electronicList) {
+            for (AuthMethod getAuthMethod : electronic.getAuthMethods()) {
+                if (getAuthMethod.equals(authMethod)) {
+                    groupByCompanyElectronic[count++] = electronic;
+                }
             }
         }
 
         return Arrays.copyOf(groupByCompanyElectronic, count);
+    }
+
+    @Override
+    public String toString() {
+        return "Electronics{" +
+                "electronicList=" + Arrays.toString(electronicList) +
+                ", size=" + size +
+                ", capacity=" + capacity +
+                '}';
     }
 }

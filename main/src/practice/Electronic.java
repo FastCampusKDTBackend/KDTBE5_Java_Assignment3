@@ -7,13 +7,13 @@ import java.util.Objects;
 public class Electronic implements Cloneable {
     private static int sequenceNumber = 0;
 
-    String productNo;
-    String modelName;
-    Company company;
-    LocalDate dateOfMade;
-    AuthMethod[] authMethod;
+    private String productNo;
+    private String modelName;
+    private Company company;
+    private LocalDate dateOfMade;
+    private AuthMethod[] authMethods;
 
-    public Electronic(String modelName, Company company, LocalDate dateOfMade, AuthMethod[] authMethod) {
+    public Electronic(String modelName, Company company, LocalDate dateOfMade, AuthMethod[] authMethods) {
         LocalDate now = LocalDate.now();
         int nowYear = now.getYear();
         int nowMonth = now.getMonth().getValue();
@@ -23,7 +23,7 @@ public class Electronic implements Cloneable {
         this.modelName = modelName;
         this.company = company;
         this.dateOfMade = dateOfMade;
-        this.authMethod = authMethod;
+        this.authMethods = authMethods;
     }
 
     public String getProductNo() {
@@ -42,8 +42,8 @@ public class Electronic implements Cloneable {
         return dateOfMade;
     }
 
-    public AuthMethod[] getAuthMethod() {
-        return authMethod;
+    public AuthMethod[] getAuthMethods() {
+        return authMethods;
     }
 
     public void setModelName(String modelName) {
@@ -58,8 +58,8 @@ public class Electronic implements Cloneable {
         this.dateOfMade = dateOfMade;
     }
 
-    public void setAuthMethod(AuthMethod[] authMethod) {
-        this.authMethod = authMethod;
+    public void setAuthMethods(AuthMethod[] authMethods) {
+        this.authMethods = authMethods;
     }
 
     @Override
@@ -67,13 +67,13 @@ public class Electronic implements Cloneable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Electronic that = (Electronic) o;
-        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && company == that.company && Objects.equals(dateOfMade, that.dateOfMade) && Arrays.equals(authMethod, that.authMethod);
+        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && company == that.company && Objects.equals(dateOfMade, that.dateOfMade) && Arrays.equals(authMethods, that.authMethods);
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hash(productNo, modelName, company, dateOfMade);
-        result = 31 * result + Arrays.hashCode(authMethod);
+        result = 31 * result + Arrays.hashCode(authMethods);
         return result;
     }
 
@@ -84,7 +84,7 @@ public class Electronic implements Cloneable {
                 ", modelName='" + modelName + '\'' +
                 ", companyName=" + company +
                 ", dateOfMade=" + dateOfMade +
-                ", authMethod=" + Arrays.toString(authMethod) +
+                ", authMethod=" + Arrays.toString(authMethods) +
                 '}';
     }
 

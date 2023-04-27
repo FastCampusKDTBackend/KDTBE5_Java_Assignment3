@@ -1,6 +1,7 @@
 package practice;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class User {
@@ -103,7 +104,7 @@ public class User {
                 ", userPhoneNumber='" + userPhoneNumber + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 ", userBirthDate='" + userBirthDate + '\'' +
-                ", electronicDevices=" + electronicList +
+                ", electronicDevices=" + Arrays.toString(electronicList) +
                 '}';
     }
 }

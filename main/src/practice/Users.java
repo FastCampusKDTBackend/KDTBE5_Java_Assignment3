@@ -19,13 +19,10 @@ public class Users {
     }
 
     public User findByUserId(String userId) {
-        for (int i = 0; i < userList.length; i++) {
-            if (userId.equals(userList[i].getUserId())) {
-                return userList[i];
-            }
-        }
-
-        return null;
+        Arrays.stream(userList)
+                .filter(user -> user.getUserId().equals(userId))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 id입니다."));
     }
 
     public User Copy(User user) throws CloneNotSupportedException {
