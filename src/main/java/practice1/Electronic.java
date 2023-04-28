@@ -28,7 +28,6 @@ public class Electronic {
         month = addZero(month);
         String day = String.valueOf(dateOfMade.getDayOfMonth());
         day = addZero(day);
-        System.out.println("year: " + year + " month: " + month + " day: " + day);
         String no = year + month + day + makeOrderString();
         productNo = Long.parseLong(no);
         return productNo;
