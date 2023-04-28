@@ -3,11 +3,10 @@ package practice1;
 import java.util.Arrays;
 
 public class Electronics {
+    private static final int DEFAULT_CAPACITY = 50;
     private static Electronics electronics;
 
     private Electronic[] electronicList;
-
-    private static final int DEFAULT_CAPACITY = 50;
 
 
     private Electronics() {

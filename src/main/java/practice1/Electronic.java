@@ -5,18 +5,19 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Electronic {
+    private static int order = 0;
+
     private Long productNo;
     private String modelName;
     private Company companyName;
     private LocalDate dateOfMade;
-    private AuthMethod[] authMethod;
-    private static int order = 0;
+    private AuthMethod[] authMethods;
 
-    public Electronic(String modelName, Company companyName, LocalDate dateOfMade, AuthMethod[] authMethod) {
+    public Electronic(String modelName, Company companyName, LocalDate dateOfMade, AuthMethod[] authMethods) {
         this.modelName = modelName;
         this.companyName = companyName;
         this.dateOfMade = dateOfMade;
-        this.authMethod = authMethod;
+        this.authMethods = authMethods;
         createProductNo(this.dateOfMade);
     }
 
@@ -24,16 +25,16 @@ public class Electronic {
         int year = dateOfMade.getYear();
         year -= 2000;
         String month = String.valueOf(dateOfMade.getMonthValue());
-        month=addZero(month);
+        month = addZero(month);
         String day = String.valueOf(dateOfMade.getDayOfMonth());
-        day=addZero(day);
+        day = addZero(day);
         System.out.println("year: " + year + " month: " + month + " day: " + day);
         String no = year + month + day + makeOrderString();
         productNo = Long.parseLong(no);
     }
 
-    private String addZero(String date){
-        if(date.length()==1){
+    private String addZero(String date) {
+        if (date.length() == 1) {
             date = "0" + date;
         }
         return date;
@@ -85,11 +86,11 @@ public class Electronic {
     }
 
     public AuthMethod[] getAuthMethod() {
-        return authMethod;
+        return authMethods;
     }
 
-    public void setAuthMethod(AuthMethod[] authMethod) {
-        this.authMethod = authMethod;
+    public void setAuthMethod(AuthMethod[] authMethods) {
+        this.authMethods = authMethods;
     }
 
     @Override
@@ -97,13 +98,13 @@ public class Electronic {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Electronic that = (Electronic) o;
-        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && companyName == that.companyName && Objects.equals(dateOfMade, that.dateOfMade) && Arrays.equals(authMethod, that.authMethod);
+        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && companyName == that.companyName && Objects.equals(dateOfMade, that.dateOfMade) && Arrays.equals(authMethods, that.authMethods);
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hash(productNo, modelName, companyName, dateOfMade);
-        result = 31 * result + Arrays.hashCode(authMethod);
+        result = 31 * result + Arrays.hashCode(authMethods);
         return result;
     }
 
@@ -114,7 +115,7 @@ public class Electronic {
                 ", modelName='" + modelName + '\'' +
                 ", companyName=" + companyName +
                 ", dateOfMade=" + dateOfMade +
-                ", authMethod=" + Arrays.toString(authMethod) +
+                ", authMethods=" + Arrays.toString(authMethods) +
                 '}';
     }
 }

@@ -4,5 +4,5 @@ public enum AuthMethod {
     PIN,
     PATTERN,
     FACE_ID,
-    FINGERPRINT,
+    FINGERPRINT
 }

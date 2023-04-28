@@ -3,10 +3,10 @@ package practice1;
 import java.util.Arrays;
 
 public class Users {
+    private static final int DEFAULT_CAPACITY = 50;
+
     private static Users users;
     private User[] userList;
-
-    private static final int DEFAULT_CAPACITY = 50;
 
     private Users() {
         userList = new User[DEFAULT_CAPACITY];
