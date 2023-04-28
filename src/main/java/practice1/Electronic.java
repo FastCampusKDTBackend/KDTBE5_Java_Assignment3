@@ -28,9 +28,25 @@ public class Electronic {
         month = addZero(month);
         String day = String.valueOf(dateOfMade.getDayOfMonth());
         day = addZero(day);
-        String no = year + month + day + makeOrderString();
-        productNo = Long.parseLong(no);
+
+        String orderString = makeOrderString();
+        String[] date = new String[]{
+                String.valueOf(year),
+                month,
+                day,
+                orderString
+        };
+        StringBuilder noStringBuilder = stringArrToStringBuilder(date);
+        productNo = Long.parseLong(noStringBuilder.toString());
         return productNo;
+    }
+
+    private StringBuilder stringArrToStringBuilder(String[] arr) {
+        StringBuilder sb = new StringBuilder();
+        for (String e : arr) {
+            sb.append(e);
+        }
+        return sb;
     }
 
     private String addZero(String date) {
