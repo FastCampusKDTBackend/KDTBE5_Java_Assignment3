@@ -18,10 +18,10 @@ public class Electronic {
         this.companyName = companyName;
         this.dateOfMade = dateOfMade;
         this.authMethods = authMethods;
-        createProductNo(this.dateOfMade);
+        this.productNo = createProductNo(this.dateOfMade);
     }
 
-    private void createProductNo(LocalDate dateOfMade) {
+    private Long createProductNo(LocalDate dateOfMade) {
         int year = dateOfMade.getYear();
         year -= 2000;
         String month = String.valueOf(dateOfMade.getMonthValue());
@@ -31,6 +31,7 @@ public class Electronic {
         System.out.println("year: " + year + " month: " + month + " day: " + day);
         String no = year + month + day + makeOrderString();
         productNo = Long.parseLong(no);
+        return productNo;
     }
 
     private String addZero(String date) {
