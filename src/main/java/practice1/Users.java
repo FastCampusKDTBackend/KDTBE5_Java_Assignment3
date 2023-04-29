@@ -12,7 +12,7 @@ public class Users {
         userList = new User[DEFAULT_CAPACITY];
     }
 
-    public Users getInstance() {
+    public static Users getInstance() {
         if (users == null) {
             users = new Users();
         }
