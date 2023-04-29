@@ -1,6 +1,10 @@
 package practice1;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Electronics {
     private static final int DEFAULT_CAPACITY = 50;
@@ -21,10 +25,12 @@ public class Electronics {
     }
 
     public Electronic findByProductNo(Long productNo) {
-        for (Electronic electronic : electronicList) {
-            if (electronic.getProductNo().equals(productNo)) {
-                return electronic;
-            }
+        Stream<Electronic> productStream = Arrays.stream(electronicList);
+        Optional<Electronic> filtered = productStream
+                .filter(product -> product.getProductNo().equals(productNo))
+                .findFirst();
+        if (filtered.isPresent()) {
+            return filtered.get();
         }
         throw new IllegalArgumentException("상품번호 " + productNo + "에 해당하는 전자제품을 찾을 수 없습니다.");
     }
