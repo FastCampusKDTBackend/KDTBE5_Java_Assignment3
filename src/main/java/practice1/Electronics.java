@@ -46,7 +46,7 @@ public class Electronics {
         if (idx == 0) {
             throw new IllegalArgumentException("제조사 " + company + "의 전자제품을 찾을 수 없습니다.");
         }
-        cutArray(companyProducts);
+        removeEmptyElements(companyProducts);
         return companyProducts;
     }
 
@@ -65,11 +65,12 @@ public class Electronics {
         if (idx == 0) {
             throw new IllegalArgumentException(authMethod + " 인증방법을 탑재한 전자제품을 찾을 수 없습니다.");
         }
-        cutArray(authMethodProducts);
+        removeEmptyElements(authMethodProducts);
         return authMethodProducts;
     }
 
-    private void cutArray(Electronic[] newElectronicList) {
+    private void removeEmptyElements(Electronic[] newElectronicList) {
+
         int idx = 0;
         for (Electronic e : newElectronicList) {
             if (e == null) {
