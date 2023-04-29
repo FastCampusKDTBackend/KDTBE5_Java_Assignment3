@@ -1,6 +1,8 @@
 package practice1;
 
 import java.util.Arrays;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class Users {
     private static final int DEFAULT_CAPACITY = 50;
@@ -20,10 +22,12 @@ public class Users {
     }
 
     public User findByUserId(String userId) {
-        for (User user : userList) {
-            if (user.getUserId().equals(userId)) {
-                return user;
-            }
+        Stream<User> userStream = Arrays.stream(userList);
+        Optional<User> filtered = userStream
+                .filter(user -> user.getUserId().equals(userId))
+                .findFirst();
+        if(filtered.isPresent()){
+            return filtered.get();
         }
         throw new IllegalArgumentException(userId + "를 가진 user를 찾을 수 없습니다.");
     }
@@ -35,6 +39,10 @@ public class Users {
         copiedUser.setRegisterTime(user.getRegisterTime());
 
         return copiedUser;
+    }
+
+    public void setUserList(User[] userList) {
+        this.userList = userList;
     }
 
     public static Users getUsers() {
