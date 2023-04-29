@@ -1,0 +1,75 @@
+package practice1;
+
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.stream.Stream;
+
+public class Users {
+    private static final int DEFAULT_CAPACITY = 50;
+
+    private static Users users;
+    private User[] userList;
+
+    private Users() {
+        userList = new User[DEFAULT_CAPACITY];
+    }
+
+    public static Users getInstance() {
+        if (users == null) {
+            users = new Users();
+        }
+        return users;
+    }
+
+    public User findByUserId(String userId) {
+        Stream<User> userStream = Arrays.stream(userList);
+        Optional<User> filtered = userStream
+                .filter(user -> user.getUserId().equals(userId))
+                .findFirst();
+        if(filtered.isPresent()){
+            return filtered.get();
+        }
+        throw new IllegalArgumentException(userId + "를 가진 user를 찾을 수 없습니다.");
+    }
+
+    public User copy(User user) {
+        User copiedUser = new User(user.getUserId(), user.getUserPassword(), user.getUserPhoneNumber(),
+                user.getUserEmail(), user.getUserBirthDate());
+
+        copiedUser.setRegisterTime(user.getRegisterTime());
+
+        return copiedUser;
+    }
+
+    public void setUserList(User[] userList) {
+        this.userList = userList;
+    }
+
+    public static Users getUsers() {
+        return users;
+    }
+
+    public static void setUsers(Users users) {
+        Users.users = users;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Users users = (Users) o;
+        return Arrays.equals(userList, users.userList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(userList);
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "userList=" + Arrays.toString(userList) +
+                '}';
+    }
+}
