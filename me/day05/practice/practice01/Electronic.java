@@ -7,6 +7,7 @@ import java.util.Objects;
 
 public class Electronic {
 
+    private static int  objectNo = 0; //등록된제품순서.
     private String productNo; //제품일련번호
     private String modelName; //전자기기 모델명
 
@@ -15,7 +16,7 @@ public class Electronic {
 
     private AuthMethod[] authMethods; //본인인증방법 , 배열로정의
 
-    private static int  objectNo = 0; //등록된제품순서.
+
 
     public Electronic() {
         objectNo++;
