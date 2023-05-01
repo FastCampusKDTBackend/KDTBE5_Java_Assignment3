@@ -2,6 +2,7 @@ package me.day05.practice.practice01;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -32,6 +33,11 @@ public class Electronic {
         sb.append(LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd")));
         sb.append(String.format("%04d", objectNo));
 
+        // 날짜 형식 검증
+        if (!isValidDateFormat(dateOfMade)) {
+            dateOfMade = "20000101"; // 기본값으로 지정
+        }
+
         this.productNo = sb.toString();
         this.modelName = modelName;
         this.companyName = companyName;
@@ -41,6 +47,21 @@ public class Electronic {
 
     }
     //5개의 인자를 가지는 생성자
+
+    private boolean isValidDateFormat(String date) {
+        // 문자열 길이와 숫자 형식 검증
+        if (date.length() != 8 || !date.matches("\\d{8}")) {
+            return false;
+        }
+
+        // 날짜 형식 검증
+        try {
+            LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyyMMdd"));
+            return true;
+        } catch (DateTimeParseException e) {
+            return false;
+        }
+    }
 
 
     public String getProductNo() {
