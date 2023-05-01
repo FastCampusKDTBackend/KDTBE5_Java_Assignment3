@@ -13,7 +13,7 @@ public class Electronic {
     private Company companyName; //제조회사명
     private String dateOfMade; //생산일자
 
-    private AuthMethod[] authMethod; //본인인증방법 , 배열로정의
+    private AuthMethod[] authMethods; //본인인증방법 , 배열로정의
 
     private static int  objectNo = 0; //등록된제품순서.
 
@@ -23,13 +23,13 @@ public class Electronic {
     // 기본생성자
 
 
-    public Electronic( String modelName, Company companyName, String dateOfMade, AuthMethod[] authMethod) {
+    public Electronic( String modelName, Company companyName, String dateOfMade, AuthMethod[] authMethods) {
         objectNo++;
         this.productNo = LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd")) + String.format("%04d", objectNo) ;
         this.modelName = modelName;
         this.companyName = companyName;
         this.dateOfMade = dateOfMade;
-        this.authMethod = authMethod;
+        this.authMethods = authMethods;
 
 
     }
@@ -69,11 +69,11 @@ public class Electronic {
     }
 
     public AuthMethod[] getAuthMethod() {
-        return authMethod;
+        return authMethods;
     }
 
-    public void setAuthMethod(AuthMethod[] authMethod) {
-        this.authMethod = authMethod;
+    public void setAuthMethod(AuthMethod[] authMethods) {
+        this.authMethods = authMethods;
     }
 
     public static int getObjectNo() {
@@ -89,13 +89,13 @@ public class Electronic {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Electronic that = (Electronic) o;
-        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && companyName == that.companyName && Objects.equals(dateOfMade, that.dateOfMade) && Arrays.equals(authMethod, that.authMethod);
+        return Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName) && companyName == that.companyName && Objects.equals(dateOfMade, that.dateOfMade) && Arrays.equals(authMethods, that.authMethods);
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hash(productNo, modelName, companyName, dateOfMade);
-        result = 31 * result + Arrays.hashCode(authMethod);
+        result = 31 * result + Arrays.hashCode(authMethods);
         return result;
     }
 
@@ -106,7 +106,7 @@ public class Electronic {
                 ", modelName='" + modelName + '\'' +
                 ", companyName=" + companyName +
                 ", dateOfMade='" + dateOfMade + '\'' +
-                ", authMethod=" + Arrays.toString(authMethod) +
+                ", authMethod=" + Arrays.toString(authMethods) +
                 '}';
     }
 }
