@@ -25,16 +25,6 @@ public class Users {
         return instance;
     }
 
-    //2. 회원아이디 userId를 통해 인자로 주어진 회원번호에 해당하는 회원을 반환하는 함수를 작성하시오.
-//    public User findByUserId(String userId) {
-//        for (User user : userList) {
-//            if (user.getUserId().equals(userId)) {
-//                return user;
-//            }
-//        }
-//        return null;
-//    }
-
     public User findByUserId(String userId) {
         return Arrays.stream(userList)
                 .filter(user -> user.getUserId().equals(userId))
