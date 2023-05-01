@@ -1,6 +1,7 @@
 package me.day05.practice.practice01;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -11,10 +12,10 @@ public class User {
     private String userEmail; //회원 이메일
     private String userBirthDate; //회원의 생년월일
     private String[] electronicDevices;  //사용중인 전자제품들, 배열로 정의
-    private LocalDate registerTime; //회원정보가 등록된 시스템시간, 생성시 시스템시간 자동설정.
+    private LocalDateTime registerTime; //회원정보가 등록된 시스템시간, 생성시 시스템시간 자동설정.
 
     public User() {
-       this.registerTime = LocalDate.now();
+       this.registerTime = LocalDateTime.now();
     }
     //기본생성자, 객체생성시 시스템시간 자동설정
 
@@ -25,7 +26,7 @@ public class User {
         this.userEmail = userEmail;
         this.userBirthDate = userBirthDate;
         this.electronicDevices = electronicDevices;
-        this.registerTime = LocalDate.now();
+        this.registerTime = LocalDateTime.now();
 
 
 
@@ -80,11 +81,11 @@ public class User {
         this.electronicDevices = electronicDevices;
     }
 
-    public LocalDate getRegisterTime() {
+    public LocalDateTime getRegisterTime() {
         return registerTime;
     }
 
-    public void setRegisterTime(LocalDate registerTime) {
+    public void setRegisterTime(LocalDateTime registerTime) {
         this.registerTime = registerTime;
     }
 
