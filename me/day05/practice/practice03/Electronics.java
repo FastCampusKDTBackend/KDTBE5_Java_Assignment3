@@ -18,7 +18,7 @@ public class Electronics {
         if(instance == null) {
             instance = new Electronics();
         }
-        return null;
+        return instance;
     }
 
     //2.전자제품 일련번호 productNo를 통해 인자로 주어진 일련번호에 해당하는 전자제품을 반환하는 함수를 작성하시오.
