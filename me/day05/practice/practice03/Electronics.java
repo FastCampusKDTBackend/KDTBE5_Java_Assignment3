@@ -22,14 +22,13 @@ public class Electronics {
     }
 
     //2.전자제품 일련번호 productNo를 통해 인자로 주어진 일련번호에 해당하는 전자제품을 반환하는 함수를 작성하시오.
-    public Electronic findByProductNo(String productNo){
-        for(Electronic electronic : electronicList) {
-            if(electronic.getProductNo().equals(productNo)){
-                return electronic;
-            }
-        }
-        return null;
+    public Electronic findByProductNo(String productNo) {
+        return Arrays.stream(electronicList)
+                .filter(electronic -> electronic.getProductNo().equals(productNo))
+                .findFirst()
+                .orElse(null);
     }
+
 
     //3.전자제품들 중 인자로 주어진 제조 회사를 찾아서 하나의 배열에 반환하는 함수를 작성하시오.
     public Electronic[] groupByCompanyName(Company company) {
