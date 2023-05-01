@@ -49,12 +49,15 @@ public class Electronics {
     //4. 전자제품들 중 인자로 주어진 인증 방법을 찾아서 하나의 배열에 반환하는 함수를 작성하시오.
     public Electronic[] groupByAuthMethod(AuthMethod authMethod){
         List<Electronic> groupAuthList = new ArrayList<>();
-        for(Electronic electronic : electronicList) {
-            if(electronic.getAuthMethod().equals(authMethod)) {
-                groupAuthList.add(electronic);
+        for (Electronic electronic : electronicList) {
+            for (AuthMethod electronicAuthMethod : electronic.getAuthMethod()) {
+                if (electronicAuthMethod.equals(authMethod)) {
+                    groupAuthList.add(electronic);
+                    break;
+                }
             }
         }
-        return groupAuthList.toArray((new Electronic[groupAuthList.size()]));
+        return groupAuthList.toArray(new Electronic[0]);
     }
 
 
