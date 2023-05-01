@@ -25,7 +25,13 @@ public class Electronic {
 
     public Electronic( String modelName, Company companyName, String dateOfMade, AuthMethod[] authMethods) {
         objectNo++;
-        this.productNo = LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd")) + String.format("%04d", objectNo) ;
+        //this.productNo = LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd")) + String.format("%04d", objectNo) ;
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd")));
+        sb.append(String.format("%04d", objectNo));
+
+        this.productNo = sb.toString();
         this.modelName = modelName;
         this.companyName = companyName;
         this.dateOfMade = dateOfMade;
