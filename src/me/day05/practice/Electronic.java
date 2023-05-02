@@ -6,56 +6,35 @@ import java.util.Objects;
 
 public class Electronic {
 
-    enum COMPANYNAME{
-        SAMSUNG,
-        LG,
-        APPLE
-    }
-
-    enum AUTHMETHOD{
-        지문인증,
-        패턴인증,
-        핀인증,
-        얼굴인증
-    }
-
-    private AUTHMETHOD[] arrAuth;
-    private COMPANYNAME companyName;
-    private String dateOfMade;
+    private Defines.AuthMethod[] authMethods;
+    private Defines.CompanyName companyName;
+    private LocalDate dateOfMade;
     private String productNo;
     private String modelName;
     private static int productNum = 0;
+    private StringBuilder sb;
 
     public Electronic(){ //일련번호 부여
         init();
     }
 
     private void init(){
-
+        sb = new StringBuilder();
         createSerialNum();
     }
 
     private void createSerialNum(){
-        StringBuilder sb = new StringBuilder();
         sb.append(String.format("%02d",LocalDate.now().getYear() % 100));
-        sb.append(String.format("%02d" ,LocalDate.now().getMonth().getValue()));
+        sb.append(String.format("%02d" ,LocalDate.now().getMonthValue()));
         sb.append(String.format("%02d", LocalDate.now().getDayOfMonth()));
         sb.append(String.format("%04d", ++productNum));
         productNo = sb.toString();
-
-//        String year = String.format("%02d",LocalDate.now().getYear() % 100);
-//        String month = String.format("%02d" ,LocalDate.now().getMonth().getValue());
-//        String day = String.format( "%02d", LocalDate.now().getDayOfMonth());
-//        String num = String.format("%04d", ++productNum);
-//        productNo = year + month + day + num;
-//
-        System.out.println(productNo);
     }
 
     @Override
     public String toString() {
         return "Electronic{" +
-                "arrAuth=" + Arrays.toString(arrAuth) +
+                "arrAuth=" + Arrays.toString(authMethods) +
                 ", companyName=" + companyName +
                 ", dateOfMade='" + dateOfMade + '\'' +
                 ", productNo='" + productNo + '\'' +
@@ -68,37 +47,37 @@ public class Electronic {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Electronic that = (Electronic) o;
-        return Arrays.equals(arrAuth, that.arrAuth) && Objects.equals(dateOfMade, that.dateOfMade) && Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName);
+        return Arrays.equals(authMethods, that.authMethods) && Objects.equals(dateOfMade, that.dateOfMade) && Objects.equals(productNo, that.productNo) && Objects.equals(modelName, that.modelName);
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hash(dateOfMade, productNo, modelName);
-        result = 31 * result + Arrays.hashCode(arrAuth);
+        result = 31 * result + Arrays.hashCode(authMethods);
         return result;
     }
 
-    public COMPANYNAME getCompanyName() {
+    public Defines.CompanyName getCompanyName() {
         return companyName;
     }
 
-    public void setCompanyName(COMPANYNAME companyName) {
+    public void setCompanyName(Defines.CompanyName companyName) {
         this.companyName = companyName;
     }
 
-    public AUTHMETHOD[] getArrAuth() {
-        return arrAuth;
+    public Defines.AuthMethod[] getArrAuth() {
+        return authMethods;
     }
 
-    public void setArrAuth(AUTHMETHOD[] arrAuth) {
-        this.arrAuth = arrAuth;
+    public void setArrAuth(Defines.AuthMethod[] authMethods) {
+        this.authMethods = authMethods;
     }
 
-    public String getDateOfMade() {
+    public LocalDate getDateOfMade() {
         return dateOfMade;
     }
 
-    public void setDateOfMade(String dateOfMade) {
+    public void setDateOfMade(LocalDate dateOfMade) {
         this.dateOfMade = dateOfMade;
     }
 

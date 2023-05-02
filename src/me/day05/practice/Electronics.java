@@ -19,7 +19,7 @@ public class Electronics {
         return null;
     }
 
-    public Electronic[] groupByCompanyName(Electronic.COMPANYNAME company){
+    public Electronic[] groupByCompanyName(Defines.CompanyName company){
         Electronic[] tmp = new Electronic[electronicList.length];
         for(int i =0; i< electronicList.length; i++){
             if(electronicList[i].getCompanyName() == company)
@@ -28,16 +28,16 @@ public class Electronics {
         return tmp;
     }
 
-    Electronic[] groupByAuthMethod(Electronic.AUTHMETHOD authMethod){
+    Electronic[] groupByAuthMethod(Defines.AuthMethod authMethod){
         Electronic[] tmp = new Electronic[electronicList.length];
 
         for(int i=0; i < electronicList.length; i++){
-            Electronic.AUTHMETHOD[] arrAuth = new Electronic.AUTHMETHOD[electronicList[i].getArrAuth().length];
-            for(int j=0; j < arrAuth.length; j++){
+            Defines.AuthMethod[] authMethods = new Defines.AuthMethod[electronicList[i].getArrAuth().length];
+            for(int j=0; j < authMethods.length; j++){
                 if(electronicList[i].getArrAuth()[j] == authMethod)
-                    arrAuth[j] = authMethod;
+                    authMethods[j] = authMethod;
             }
-            tmp[i].setArrAuth(arrAuth);
+            tmp[i].setArrAuth(authMethods);
         }
         return tmp;
     }
