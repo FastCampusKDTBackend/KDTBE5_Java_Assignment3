@@ -14,8 +14,18 @@ public class Electronic {
     private static int productNum = 0;
     private StringBuilder sb;
 
+
     public Electronic(){ //일련번호 부여
         init();
+    }
+
+    public Electronic(Defines.AuthMethod[] authMethods, Defines.CompanyName companyName, LocalDate dateOfMade,
+                      String productNo, String modelName){
+        this.authMethods = authMethods.clone();
+        this.companyName = companyName;
+        this.dateOfMade = dateOfMade;
+        this.productNo = productNo;
+        this.modelName = modelName;
     }
 
     private void init(){
@@ -29,6 +39,7 @@ public class Electronic {
         sb.append(String.format("%02d", LocalDate.now().getDayOfMonth()));
         sb.append(String.format("%04d", ++productNum));
         productNo = sb.toString();
+        sb.setLength(0);
     }
 
     @Override
