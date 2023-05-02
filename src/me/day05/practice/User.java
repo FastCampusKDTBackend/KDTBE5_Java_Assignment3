@@ -1,5 +1,6 @@
 package me.day05.practice;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
 
@@ -11,10 +12,25 @@ public class User {
     private String userPassword;
     private int userPhoneNumber;
     private String userEmail;
-    private int userBirthDate;
+    private LocalDate userBirthDate;
     private Electronic[] electronicDevices;
+    private LocalTime registerTime;
 
-    private int registerTime;
+    public User(){
+        init();
+    }
+
+    private void init(){// 시스템 시간 설정
+        setRegisterTime();
+    }
+
+    private void setRegisterTime(){
+        this.registerTime = LocalTime.now();
+    }
+
+    public int getRegisterTime() {
+        return registerTime.getHour();
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -76,11 +92,11 @@ public class User {
         this.userEmail = userEmail;
     }
 
-    public int getUserBirthDate() {
+    public LocalDate getUserBirthDate() {
         return userBirthDate;
     }
 
-    public void setUserBirthDate(int userBirthDate) {
+    public void setUserBirthDate(LocalDate userBirthDate) {
         this.userBirthDate = userBirthDate;
     }
 
@@ -92,24 +108,6 @@ public class User {
         this.electronicDevices = electronicDevices;
     }
 
-    public int getRegisterTime() {
-        return registerTime;
-    }
 
-//    public void setRegisterTime(int registerTime) {
-//        this.registerTime = registerTime;
-//    }
-
-
-    public User(){
-        init();
-    }
-
-    private void init(){// 시스템 시간 설정
-        LocalTime time = LocalTime.now();
-        String[] strTime = time.toString().split(":");
-
-        registerTime = Integer.parseInt(strTime[0]);
-    }
 
 }
