@@ -13,17 +13,14 @@ public class User {
     private Electronic[] electronicDevices;
     private LocalDateTime registerTime;
 
-    public User() {
-        this.electronicDevices = new Electronic[10];
-        this.registerTime = LocalDateTime.now();
-    }
     public User(String userId,
                 String userPassword,
                 String userPhoneNumber,
                 String userEmail,
                 String userBirthDate
     ) {
-        this();
+        this.electronicDevices = new Electronic[10];
+        this.registerTime = LocalDateTime.now();
         this.userId = userId;
         this.userPassword = userPassword;
         this.userPhoneNumber = userPhoneNumber;
