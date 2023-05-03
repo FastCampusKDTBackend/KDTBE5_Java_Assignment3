@@ -1,11 +1,7 @@
 package me.day05.practice;
 
-import java.io.IOException;
-import java.lang.invoke.MethodHandles;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Users {
@@ -68,8 +64,8 @@ public class Users {
         return optionalUser.get();
     }
 
-    public User copy(User user){
-        User copyUser = new User();
+    public User copy(User user) throws CloneNotSupportedException {
+        User copyUser = (User)user.clone();
         copyUser.setUserId(user.getUserId());
         copyUser.setUserPassword(user.getUserPassword());
         copyUser.setUserEmail(user.getUserEmail());
@@ -77,7 +73,7 @@ public class Users {
         copyUser.setUserPhoneNumber(user.getUserPhoneNumber());
         copyUser.setElectronicDevices(user.getElectronicDevices());
 
-         return copyUser;
+        return copyUser;
     }
 
 }

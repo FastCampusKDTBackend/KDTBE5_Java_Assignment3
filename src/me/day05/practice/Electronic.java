@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Electronic {
+public class Electronic implements Cloneable{
 
+    private static int productNum = 0;
     private Defines.AuthMethod[] authMethods;
     private Defines.CompanyName companyName;
     private LocalDate dateOfMade;
     private String productNo;
     private String modelName;
-    private static int productNum = 0;
     private StringBuilder sb;
 
 
@@ -42,6 +42,10 @@ public class Electronic {
         sb.setLength(0);
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
     @Override
     public String toString() {
         return "Electronic{" +

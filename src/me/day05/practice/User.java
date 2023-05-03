@@ -3,10 +3,9 @@ package me.day05.practice;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
-
 import java.util.Objects;
 
-public class User {
+public class User implements Cloneable{
 
     private String userId;
     private String userPassword;
@@ -30,6 +29,11 @@ public class User {
 
     public int getRegisterTime() {
         return registerTime.getHour();
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     @Override
@@ -104,10 +108,11 @@ public class User {
         return electronicDevices;
     }
 
-    public void setElectronicDevices(Electronic[] electronicDevices) {
-        this.electronicDevices = electronicDevices;
+    public void setElectronicDevices(Electronic[] electronicDevices) throws CloneNotSupportedException {
+        this.electronicDevices = new Electronic[electronicDevices.length];
+        for(int i =0 ; i < this.electronicDevices.length; i++) {
+            this.electronicDevices[i] = (Electronic) (electronicDevices[i].clone());
+        }
     }
-
-
 
 }
