@@ -28,10 +28,11 @@ public class Electronic {
     }
 
     private String generateProductNo() {
+        StringBuilder builder = new StringBuilder();
         String id = String.format("%04d", ++autoIncrementNumber);
         String generatedDate = LocalDate.now().toString().replace("-", "").substring(2);
-
-        return generatedDate + id;
+        builder.append(generatedDate).append(id);
+        return builder.toString();
     }
 
     public String getProductNo() {
