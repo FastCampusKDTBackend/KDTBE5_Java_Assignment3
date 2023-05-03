@@ -17,6 +17,7 @@ public class Users {
         if (instance == null) {
             instance = new Users();
         }
+
         return instance;
     }
 
@@ -47,6 +48,7 @@ public class Users {
         );
         user.setElectronicDevices(original.getElectronicDevices().clone());
         user.setRegisterTime(original.getRegisterTime());
+
         return user;
     }
 
@@ -63,6 +65,7 @@ public class Users {
                 return false;
             }
         }
+
         return true;
     }
 

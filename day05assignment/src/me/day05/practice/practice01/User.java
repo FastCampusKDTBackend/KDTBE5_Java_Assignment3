@@ -99,6 +99,7 @@ public class User {
         if (!Objects.equals(userPhoneNumber, user.userPhoneNumber)) return false;
         if (!Objects.equals(userEmail, user.userEmail)) return false;
         if (!Objects.equals(userBirthDate, user.userBirthDate)) return false;
+
         return Objects.equals(registerTime, user.registerTime);
     }
 

@@ -30,6 +30,7 @@ public class Electronic {
     private String generateProductNo() {
         String id = String.format("%04d", ++autoIncrementNumber);
         String generatedDate = LocalDate.now().toString().replace("-", "").substring(2);
+
         return generatedDate + id;
     }
 
@@ -64,6 +65,7 @@ public class Electronic {
     public AuthMethod[] getAuthMethods() {
         return authMethods;
     }
+
     public void setAuthMethods(AuthMethod[] authMethods) {
         this.authMethods = authMethods;
     }
@@ -74,6 +76,7 @@ public class Electronic {
         if (obj == null || this.getClass() != obj.getClass()) return false;
 
         Electronic that = (Electronic) obj;
+
         return Objects.equals(this.productNo, that.productNo); // Unique한 id 값을 가지고 있기 때문에 이렇게 작성
     }
 

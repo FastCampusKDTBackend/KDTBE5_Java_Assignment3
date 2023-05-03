@@ -20,6 +20,7 @@ public class Electronics {
         if (instance == null) {
             instance = new Electronics();
         }
+
         return instance;
     }
 
@@ -70,6 +71,7 @@ public class Electronics {
                 return false;
             }
         }
+
         return true;
     }
 
