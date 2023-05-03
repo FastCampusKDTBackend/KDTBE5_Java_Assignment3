@@ -72,13 +72,18 @@ public class Electronic {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || this.getClass() != obj.getClass()) return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        Electronic that = (Electronic) obj;
+        Electronic that = (Electronic) o;
 
-        return Objects.equals(this.productNo, that.productNo); // Unique한 id 값을 가지고 있기 때문에 이렇게 작성
+        if (!Objects.equals(productNo, that.productNo)) return false;
+        if (!Objects.equals(modelName, that.modelName)) return false;
+        if (companyName != that.companyName) return false;
+        if (!Objects.equals(dateOfDate, that.dateOfDate)) return false;
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        return Arrays.equals(authMethods, that.authMethods);
     }
 
     @Override
