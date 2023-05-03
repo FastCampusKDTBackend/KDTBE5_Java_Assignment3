@@ -88,11 +88,12 @@ public class Electronic {
 
     @Override
     public int hashCode() {
-        return Objects.hash(productNo,
-                modelName,
-                companyName,
-                dateOfDate
-        );
+        int result = productNo != null ? productNo.hashCode() : 0;
+        result = 31 * result + (modelName != null ? modelName.hashCode() : 0);
+        result = 31 * result + (companyName != null ? companyName.hashCode() : 0);
+        result = 31 * result + (dateOfDate != null ? dateOfDate.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(authMethods);
+        return result;
     }
 
     @Override
